@@ -27,3 +27,15 @@ setup.log
 
 # Local OPAM switch
 _opam/
+
+# Esy
+node_modules/
+_esy/
+
+# Other
+META
+.vscode/
+.DS_Store
+*.tar.gz
+*.install
+*.zip

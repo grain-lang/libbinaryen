@@ -1,0 +1,18 @@
+(library
+ (name binaryen)
+ (libraries libbinaryen_c)
+ (modules types)
+ (foreign_stubs
+  (language c)
+  (names binaryen_stubs_types)
+  (flags
+   (:standard -O2 -Wall -Wextra)
+   (-I libbinaryen_c)))
+ (c_library_flags :standard -lstdc++ -lpthread))
+
+(test
+ (name test)
+ (modules test)
+ (libraries binaryen)
+ (action
+  (run %{test})))
