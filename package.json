@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "ocaml": "4.12.0",
-    "@opam/conf-cmake": "Et7f3/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869",
+    "@opam/conf-cmake": "grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869",
     "@opam/dune": "^2.9.1",
     "@opam/dune-configurator": "^2.9.1"
   },
