@@ -5,9 +5,7 @@
  (foreign_stubs
   (language c)
   (names binaryen_stubs_types)
-  (flags
-   (:standard -O2 -Wall -Wextra)
-   (-I libbinaryen_c)))
+  (flags :standard -O2 -Wall -Wextra))
  (c_library_flags :standard -lstdc++ -lpthread))
 
 (test
