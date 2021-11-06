@@ -11,6 +11,7 @@
     "@opam/dune-configurator": "^2.9.1"
   },
   "devDependencies": {
+    "@opam/ocamlformat": "0.18.0",
     "@opam/ocaml-lsp-server": "^1.8.2"
   },
   "esy": {
