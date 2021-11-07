@@ -1,0 +1,40 @@
+name: Esy
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    name: Build and test
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Setup node.js
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '14'
+          check-latest: true
+
+      # Install `esy` to build the project
+      - name: Setup environment
+        run: |
+          npm i -g esy
+
+      - name: Checkout project
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+
+      - name: Esy build
+        uses: esy/github-action@d859489ca96411749931bceb4d733a2bdea922f9
+        with:
+          cache-key: ${{ hashFiles('esy.lock/index.json') }}
+
+      - name: Run tests
+        run: |
+          esy test

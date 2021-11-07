@@ -1,0 +1,18 @@
+opam-version: "2.0"
+version: "101.0.0"
+synopsis: "Libbinaryen packaged for OCaml"
+maintainer: "blaine@grain-lang.org"
+author: "Blaine Bublitz"
+license: "Apache-2.0"
+homepage: "https://github.com/grain-lang/libbinaryen"
+dev-repo: "git+https://github.com/grain-lang/libbinaryen.git"
+bug-reports: "https://github.com/grain-lang/libbinaryen/issues"
+build: [
+  [ "dune" "subst" ] {dev}
+  [ "dune" "build" "-p" name "-j" jobs ]
+]
+depends: [
+  "conf-cmake" {= "1"}
+  "dune" {>= "2.9.1"}
+  "dune-configurator" {>= "2.9.1"}
+]

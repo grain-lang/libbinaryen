@@ -1,0 +1,37 @@
+{
+  "name": "@grain/libbinaryen",
+  "version": "101.0.0",
+  "description": "Libbinaryen packaged for OCaml.",
+  "author": "Blaine Bublitz <blaine@grain-lang.org>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "ocaml": "4.12.0",
+    "@opam/conf-cmake": "grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869",
+    "@opam/dune": "^2.9.1",
+    "@opam/dune-configurator": "^2.9.1"
+  },
+  "devDependencies": {
+    "@opam/ocamlformat": "0.18.0",
+    "@opam/ocaml-lsp-server": "^1.8.2"
+  },
+  "esy": {
+    "build": [
+      "dune build -p libbinaryen"
+    ],
+    "buildEnv": {
+      "CC": "#{os == 'windows' ? 'x86_64-w64-mingw32-gcc' : ''}",
+      "CXX": "#{os == 'windows' ? 'x86_64-w64-mingw32-g++' : ''}"
+    }
+  },
+  "scripts": {
+    "test": "esy b dune runtest",
+    "format": "dune build @fmt --auto-promote"
+  },
+  "installConfig": {
+    "pnp": false
+  },
+  "keywords": [
+    "binaryen",
+    "ocaml"
+  ]
+}
