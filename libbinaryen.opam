@@ -12,7 +12,9 @@ build: [
   [ "dune" "build" "-p" name "-j" jobs ]
 ]
 depends: [
-  "conf-cmake" {= "1"}
+  "conf-cmake" {build}
+  "conf-python-3" {build}
   "dune" {>= "2.9.1"}
   "dune-configurator" {>= "2.9.1"}
+  "ocaml" {>= "4.12"}
 ]
