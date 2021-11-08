@@ -8,7 +8,18 @@
  (install_c_headers binaryen-c wasm-delegations))
 
 (rule
- (targets libbinaryen.a binaryen-c.h wasm-delegations.h)
+ (targets binaryen-c.h wasm-delegations.h)
+ (deps
+  (source_tree binaryen))
+ (action
+  (no-infer
+   (progn
+    (copy binaryen/src/binaryen-c.h binaryen-c.h)
+    (copy binaryen/src/wasm-delegations.h wasm-delegations.h)))))
+
+(rule
+ (targets libbinaryen.a)
+ (locks binaryen)
  (deps
   (source_tree binaryen))
  (action
@@ -19,20 +30,18 @@
      -S
      binaryen
      -B
-     archive_out
+     binaryen
      -G
      "Unix Makefiles"
      -DBUILD_STATIC_LIB=ON
      -DCMAKE_BUILD_TYPE=Release
-     -DCMAKE_INSTALL_PREFIX=archive_out/install)
-    (run cmake --build archive_out --config Release)
-    (run cmake --install archive_out --config Release)
-    (copy archive_out/install/lib/libbinaryen.a libbinaryen.a)
-    (copy archive_out/install/include/binaryen-c.h binaryen-c.h)
-    (copy archive_out/install/include/wasm-delegations.h wasm-delegations.h)))))
+     -DCMAKE_INSTALL_PREFIX=binaryen)
+    (run cmake --build binaryen --config Release)
+    (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
 
 (rule
  (target dllbinaryen.so)
+ (locks binaryen)
  (deps
   (source_tree binaryen))
  (enabled_if
@@ -45,18 +54,18 @@
      -S
      binaryen
      -B
-     shared_out
+     binaryen
      -G
      "Unix Makefiles"
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
-     -DCMAKE_INSTALL_PREFIX=shared_out/install)
-    (run cmake --build shared_out --config Release)
-    (run cmake --install shared_out --config Release)
-    (copy shared_out/install/lib/libbinaryen.dylib dllbinaryen.so)))))
+     -DCMAKE_INSTALL_PREFIX=binaryen)
+    (run cmake --build binaryen --config Release)
+    (copy binaryen/lib/libbinaryen.dylib dllbinaryen.so)))))
 
 (rule
  (target dllbinaryen.so)
+ (locks binaryen)
  (deps
   (source_tree binaryen))
  (enabled_if
@@ -69,18 +78,18 @@
      -S
      binaryen
      -B
-     shared_out
+     binaryen
      -G
      "Unix Makefiles"
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
-     -DCMAKE_INSTALL_PREFIX=shared_out/install)
-    (run cmake --build shared_out --config Release)
-    (run cmake --install shared_out --config Release)
-    (copy shared_out/install/lib/libbinaryen.so dllbinaryen.so)))))
+     -DCMAKE_INSTALL_PREFIX=binaryen)
+    (run cmake --build binaryen --config Release)
+    (copy binaryen/lib/libbinaryen.so dllbinaryen.so)))))
 
 (rule
  (target dllbinaryen.dll)
+ (locks binaryen)
  (deps
   (source_tree binaryen))
  (enabled_if
@@ -93,12 +102,11 @@
      -S
      binaryen
      -B
-     shared_out
+     binaryen
      -G
      "Unix Makefiles"
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
-     -DCMAKE_INSTALL_PREFIX=shared_out/install)
-    (run cmake --build shared_out --config Release)
-    (run cmake --install shared_out --config Release)
-    (copy shared_out/install/bin/libbinaryen.dll dllbinaryen.dll)))))
+     -DCMAKE_INSTALL_PREFIX=binaryen)
+    (run cmake --build binaryen --config Release)
+    (copy binaryen/bin/libbinaryen.dll dllbinaryen.dll)))))
