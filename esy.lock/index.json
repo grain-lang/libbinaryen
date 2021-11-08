@@ -1,5 +1,5 @@
 {
-  "checksum": "a76af2a5f90fd9d38fd5daef38abe3bf",
+  "checksum": "0f219fb1d4cb3539a7b266e15c1decc5",
   "root": "@grain/libbinaryen@link-dev:./package.json",
   "node": {
     "ocaml@4.12.0@d41d8cd9": {
@@ -1062,6 +1062,23 @@
         "@opam/base-unix@opam:base@87d0b2eb"
       ]
     },
+    "@opam/conf-python-3@opam:1.0.0@5a2ad0fc": {
+      "id": "@opam/conf-python-3@opam:1.0.0@5a2ad0fc",
+      "name": "@opam/conf-python-3",
+      "version": "opam:1.0.0",
+      "source": {
+        "type": "install",
+        "source": [ "no-source:" ],
+        "opam": {
+          "name": "conf-python-3",
+          "version": "1.0.0",
+          "path": "esy.lock/opam/conf-python-3.1.0.0"
+        }
+      },
+      "overrides": [],
+      "dependencies": [ "@esy-ocaml/substs@0.0.1@d41d8cd9" ],
+      "devDependencies": []
+    },
     "@opam/conf-cmake@github:grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869@d41d8cd9": {
       "id":
         "@opam/conf-cmake@github:grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869@d41d8cd9",
@@ -1227,6 +1244,7 @@
         "ocaml@4.12.0@d41d8cd9",
         "@opam/dune-configurator@opam:2.9.1@b7cf7a02",
         "@opam/dune@opam:2.9.1@1e504822",
+        "@opam/conf-python-3@opam:1.0.0@5a2ad0fc",
         "@opam/conf-cmake@github:grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869@d41d8cd9"
       ],
       "devDependencies": [
