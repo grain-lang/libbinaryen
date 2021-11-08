@@ -109,4 +109,4 @@
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
     (run cmake --build binaryen --config Release)
-    (copy binaryen/lib/libbinaryen.dll dllbinaryen.dll)))))
+    (copy binaryen/bin/libbinaryen.dll dllbinaryen.dll)))))
