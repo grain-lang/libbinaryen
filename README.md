@@ -2,7 +2,7 @@
 
 Libbinaryen packaged for OCaml.
 
-This is just the low-level C library. If you are looking for OCaml *bindings* to Binaryen, check out [Binaryen.ml](https://github.com/grain-lang/binaryen.ml)!
+This is just the low-level C library. If you are looking for OCaml _bindings_ to Binaryen, check out [Binaryen.ml](https://github.com/grain-lang/binaryen.ml)!
 
 ## Usage
 
@@ -19,6 +19,14 @@ Inside your dune file, you can depend on `libbinaryen` as such:
   (flags :standard -O2 -Wall -Wextra))
  (c_library_flags :standard -lstdc++ -lpthread))
 ```
+
+## Dependencies
+
+This project requires `CMake` and `python` (v3.5 or greater).
+
+When installing with opam, both of these dependencies will be checked using `conf-cmake` and `conf-python-3`.
+
+When installing with esy, CMake will be built from source, and, on Mac or Linux, Python must be globally installed within a location that esy knows about (those being `/usr/local/bin`, `/usr/bin`, `/bin`, `/usr/sbin`, or `/sbin`). On Windows, a suitable python is already available from esy-bash.
 
 ## Library flags
 
