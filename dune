@@ -5,17 +5,17 @@
  (library_flags
   (:include ./config/library_flags.sexp))
  (c_library_flags :standard -lstdc++ -lpthread)
- (install_c_headers binaryen-c wasm-delegations))
+ (install_c_headers binaryen-c))
 
 (rule
- (targets binaryen-c.h wasm-delegations.h)
+ (targets binaryen-c.h wasm-delegations.def)
  (deps
   (source_tree binaryen))
  (action
   (no-infer
    (progn
     (copy binaryen/src/binaryen-c.h binaryen-c.h)
-    (copy binaryen/src/wasm-delegations.h wasm-delegations.h)))))
+    (copy binaryen/src/wasm-delegations.def wasm-delegations.def)))))
 
 (rule
  (targets libbinaryen.a)
