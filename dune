@@ -69,7 +69,9 @@
  (deps
   (source_tree binaryen))
  (enabled_if
-  (= %{system} linux))
+  (and
+   (<> %{system} macosx)
+   (<> %{system} mingw64)))
  (action
   (no-infer
    (progn
