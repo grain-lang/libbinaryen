@@ -1,5 +1,12 @@
 # Changelog
 
+### [101.0.2](https://www.github.com/grain-lang/libbinaryen/compare/v101.0.1...v101.0.2) (2022-01-06)
+
+
+### Bug Fixes
+
+* Always have a target non-Windows/non-MacOS ([#17](https://www.github.com/grain-lang/libbinaryen/issues/17)) ([fac9d36](https://www.github.com/grain-lang/libbinaryen/commit/fac9d36e5ddbfa7aaa7cc86344e53d716ae98c60))
+
 ### [101.0.1](https://www.github.com/grain-lang/libbinaryen/compare/v101.0.0...v101.0.1) (2021-11-10)
 
 
