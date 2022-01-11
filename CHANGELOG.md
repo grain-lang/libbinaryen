@@ -1,5 +1,16 @@
 # Changelog
 
+## [103.0.0](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.0...v103.0.0) (2022-01-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Bump binaryen to version_103 (#24)
+
+### Features
+
+* Bump binaryen to version_103 ([#24](https://www.github.com/grain-lang/libbinaryen/issues/24)) ([aa8a42d](https://www.github.com/grain-lang/libbinaryen/commit/aa8a42dd4c55065d5f7b27b813573d137c1dde08))
+
 ## [102.0.0](https://www.github.com/grain-lang/libbinaryen/compare/v101.0.2...v102.0.0) (2022-01-06)
 
 
