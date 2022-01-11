@@ -33,8 +33,7 @@
      binaryen
      -G
      "Unix Makefiles"
-     -DCMAKE_CXX_FLAGS=
-     "-Wno-unused-variable"
+     -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_STATIC_LIB=ON
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
@@ -59,8 +58,7 @@
      binaryen
      -G
      "Unix Makefiles"
-     -DCMAKE_CXX_FLAGS=
-     "-Wno-unused-variable"
+     -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
@@ -87,8 +85,7 @@
      binaryen
      -G
      "Unix Makefiles"
-     -DCMAKE_CXX_FLAGS=
-     "-Wno-unused-variable"
+     -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
@@ -113,8 +110,7 @@
      binaryen
      -G
      "Unix Makefiles"
-     -DCMAKE_CXX_FLAGS=
-     "-Wno-unused-variable"
+     -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
