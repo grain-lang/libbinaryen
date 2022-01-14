@@ -21,6 +21,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           release-type: ocaml
           package-name: libbinaryen
+          default-branch: v102
 
   add-archive:
     needs: [release-please]
