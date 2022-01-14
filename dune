@@ -7,6 +7,12 @@
  (c_library_flags :standard -lstdc++ -lpthread)
  (install_c_headers binaryen-c))
 
+(install
+ (section lib)
+ (package libbinaryen)
+ (files
+  (wasm-delegations.def as c/wasm-delegations.def)))
+
 (rule
  (targets binaryen-c.h wasm-delegations.def)
  (deps
