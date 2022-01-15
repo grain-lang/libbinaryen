@@ -1,5 +1,12 @@
 # Changelog
 
+### [102.0.1](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.0...v102.0.1) (2022-01-14)
+
+
+### Bug Fixes
+
+* Copy wasm-delegations.def into the correct location ([#28](https://www.github.com/grain-lang/libbinaryen/issues/28)) ([c79bcc3](https://www.github.com/grain-lang/libbinaryen/commit/c79bcc39aa76d23d96086cd191a53b249bfedb6b))
+
 ## [102.0.0](https://www.github.com/grain-lang/libbinaryen/compare/v101.0.2...v102.0.0) (2022-01-06)
 
 
