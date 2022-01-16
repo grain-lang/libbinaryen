@@ -113,6 +113,7 @@
      binaryen
      -G
      "Unix Makefiles"
+     -DCMAKE_SHARED_LIBRARY_PREFIX_CXX=lib
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
