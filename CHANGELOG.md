@@ -1,5 +1,12 @@
 # Changelog
 
+### [102.0.2](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.1...v102.0.2) (2022-01-18)
+
+
+### Bug Fixes
+
+* Ensure project can build with Opam on Windows ([#33](https://www.github.com/grain-lang/libbinaryen/issues/33)) ([e6070de](https://www.github.com/grain-lang/libbinaryen/commit/e6070de21672242df02247f84c11f156d435787e))
+
 ### [102.0.1](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.0...v102.0.1) (2022-01-14)
 
 
