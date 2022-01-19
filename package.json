@@ -10,10 +10,6 @@
     "@opam/dune": "^2.9.1",
     "@opam/dune-configurator": "^2.9.1"
   },
-  "devDependencies": {
-    "@opam/ocamlformat": "0.20.1",
-    "@opam/ocaml-lsp-server": "^1.9.1"
-  },
   "esy": {
     "build": [
       "dune build -p libbinaryen"
