@@ -16,7 +16,7 @@
   },
   "esy": {
     "build": [
-      "dune build -p libbinaryen"
+      "dune build -p libbinaryen -j 4"
     ],
     "buildEnv": {
       "CC": "#{os == 'windows' ? 'x86_64-w64-mingw32-gcc' : ''}",
