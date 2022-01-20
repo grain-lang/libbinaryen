@@ -16,8 +16,7 @@ Inside your dune file, you can depend on `libbinaryen` as such:
  (foreign_stubs
   (language c)
   (names binaryen_stubs)
-  (flags :standard -O2 -Wall -Wextra))
- (c_library_flags :standard -lstdc++ -lpthread))
+  (flags :standard -O2 -Wall -Wextra)))
 ```
 
 ## Dependencies
@@ -28,17 +27,39 @@ When installing with opam, both of these dependencies will be checked using `con
 
 When installing with esy, CMake will be built from source, and, on Mac or Linux, Python must be globally installed within a location that esy knows about (those being `/usr/local/bin`, `/usr/bin`, `/bin`, `/usr/sbin`, or `/sbin`). On Windows, a suitable python is already available from esy-bash.
 
-## Library flags
+## MacOS C++ Compiler
 
-This package attempts to smooth over configuration frustrations by providing specific `library_flags` when built.
+When including this library in your `dune` MacOS executables, you'll need to specify `-cc clang++` in your `(flags)` stanza. This is required because Binaryen will throw errors for itself to catch and using `clang++` is the only way to handle them correctly. You can find more info on this [ocaml issue](https://github.com/ocaml/ocaml/issues/10423).
 
-### MacOS
+Your stanza could look something like this:
 
-In order to support Mac M1, this package assumes you are using `clang++` on MacOS and applies the flags `-cc clang++` to the built library.
+```diff
+ (executable
+  (name example)
+  (public_name example)
+  (package example)
++ (flags -cc clang++)
+  (modules example)
+  (libraries binaryen))
+```
 
-### Windows
+These flags likely won't work on other operating systems, so you'll probably need to use `dune-configurator` to vary the flags per platform. You can see an example of this in our [tests/](./tests/dune).
 
-On Windows, this package assumes libbinaryen is built under MinGW and applies the flags `-ccopt -- -ccopt -static` to the built library.
+## Static Linking
+
+If you are planning to create portable binaries for Windows, it will try to find Cygwin/MinGW locations in your `PATH`. To avoid this, you probably want to add this to your `(executable)` stanzas:
+
+```diff
+ (executable
+  (name example)
+  (public_name example)
+  (package example)
++ (flags (:standard -ccopt -- -ccopt -static))
+  (modules example)
+  (libraries binaryen))
+```
+
+These flags might not work on other operating systems (like MacOS), so you'll probably need to use `dune-configurator` to vary the flags per platform. You can see an example of this in our [tests/](./tests/dune).
 
 ## Contributing
 

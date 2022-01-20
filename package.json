@@ -5,22 +5,32 @@
   "author": "Blaine Bublitz <blaine@grain-lang.org>",
   "license": "Apache-2.0",
   "dependencies": {
-    "ocaml": "4.12.0",
+    "ocaml": ">= 4.12.0",
     "@opam/conf-cmake": "grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869",
     "@opam/dune": "^2.9.1",
     "@opam/dune-configurator": "^2.9.1"
   },
   "devDependencies": {
-    "@opam/ocamlformat": "0.18.0",
-    "@opam/ocaml-lsp-server": "^1.8.2"
+    "@opam/ocamlformat": "0.20.1",
+    "@opam/ocaml-lsp-server": "^1.9.1"
+  },
+  "resolutions": {
+    "@opam/ocp-indent": "1.7.0"
   },
   "esy": {
     "build": [
-      "dune build -p libbinaryen"
+      "dune build -p libbinaryen -j 4"
     ],
     "buildEnv": {
+      "PATH": "#{os == 'windows' ? '/usr/x86_64-w64-mingw32/sys-root/mingw/bin' : '' : $PATH }",
       "CC": "#{os == 'windows' ? 'x86_64-w64-mingw32-gcc' : ''}",
       "CXX": "#{os == 'windows' ? 'x86_64-w64-mingw32-g++' : ''}"
+    },
+    "exportedEnv": {
+      "PATH": {
+        "val": "#{os == 'windows' ? '/usr/x86_64-w64-mingw32/sys-root/mingw/bin' : '' : $PATH }",
+        "scope": "global"
+      }
     }
   },
   "scripts": {
