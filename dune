@@ -40,7 +40,7 @@
      -DBUILD_STATIC_LIB=ON
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
-    (run cmake --build binaryen --config Release -j 4)
+    (run cmake --build binaryen --config Release -- -j4)
     (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
 
 (rule
@@ -64,7 +64,7 @@
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
-    (run cmake --build binaryen --config Release -j 4)
+    (run cmake --build binaryen --config Release -- -j4)
     (copy binaryen/lib/libbinaryen.dylib dllbinaryen.so)))))
 
 (rule
@@ -90,7 +90,7 @@
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
-    (run cmake --build binaryen --config Release -j 4)
+    (run cmake --build binaryen --config Release -- -j4)
     (copy binaryen/lib/libbinaryen.so dllbinaryen.so)))))
 
 (rule
@@ -115,5 +115,5 @@
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
-    (run cmake --build binaryen --config Release -j 4)
+    (run cmake --build binaryen --config Release -- -j4)
     (copy binaryen/bin/libbinaryen.dll dllbinaryen.dll)))))
