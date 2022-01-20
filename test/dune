@@ -5,12 +5,14 @@
  (foreign_stubs
   (language c)
   (names binaryen_stubs_types)
-  (flags :standard -O2 -Wall -Wextra))
- (c_library_flags :standard -lstdc++ -lpthread))
+  (flags :standard -O2 -Wall -Wextra)))
 
 (test
  (name test)
  (modules test)
  (libraries binaryen)
+ (flags
+  :standard
+  (:include ./config/flags.sexp))
  (action
   (run %{test})))
