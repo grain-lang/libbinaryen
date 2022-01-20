@@ -1,5 +1,13 @@
 # Changelog
 
+### [102.0.3](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.2...v102.0.3) (2022-01-20)
+
+
+### Bug Fixes
+
+* Remove library_flags & only specify c_library_flags where needed ([#37](https://www.github.com/grain-lang/libbinaryen/issues/37)) ([cd8c41a](https://www.github.com/grain-lang/libbinaryen/commit/cd8c41a9ffae5949063f0ace49d0ecdcc74b4c31))
+* Run cmake build with -j4 for faster builds ([cd8c41a](https://www.github.com/grain-lang/libbinaryen/commit/cd8c41a9ffae5949063f0ace49d0ecdcc74b4c31))
+
 ### [102.0.2](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.1...v102.0.2) (2022-01-18)
 
 
