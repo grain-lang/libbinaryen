@@ -1,5 +1,12 @@
 # Changelog
 
+### [102.0.4](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.3...v102.0.4) (2022-01-20)
+
+
+### Bug Fixes
+
+* Use double dash before -j4 to always pass through ([#39](https://www.github.com/grain-lang/libbinaryen/issues/39)) ([002eb47](https://www.github.com/grain-lang/libbinaryen/commit/002eb470eb3a7c751ca7071b8840df73433ab430))
+
 ### [102.0.3](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.2...v102.0.3) (2022-01-20)
 
 
