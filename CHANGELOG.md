@@ -1,5 +1,16 @@
 # Changelog
 
+### [103.0.1](https://www.github.com/grain-lang/libbinaryen/compare/v103.0.0...v103.0.1) (2022-01-20)
+
+
+### Bug Fixes
+
+* Copy wasm-delegations.def into the correct location ([#28](https://www.github.com/grain-lang/libbinaryen/issues/28)) ([#31](https://www.github.com/grain-lang/libbinaryen/issues/31)) ([bc0c7ee](https://www.github.com/grain-lang/libbinaryen/commit/bc0c7ee35de32c90b52cd73a28e5e5eccfd28a3f))
+* Ensure project can build with Opam on Windows ([#33](https://www.github.com/grain-lang/libbinaryen/issues/33)) ([#35](https://www.github.com/grain-lang/libbinaryen/issues/35)) ([cf3a72e](https://www.github.com/grain-lang/libbinaryen/commit/cf3a72e931dc5323eb901955f4121a9266bdf7a5))
+* Remove library_flags & only specify c_library_flags where needed ([#41](https://www.github.com/grain-lang/libbinaryen/issues/41)) ([a89fad6](https://www.github.com/grain-lang/libbinaryen/commit/a89fad610435b327df333cb0ef687087be0fd536))
+* Run cmake build with -j4 for faster builds ([a89fad6](https://www.github.com/grain-lang/libbinaryen/commit/a89fad610435b327df333cb0ef687087be0fd536))
+* Use double dash before -j4 to always pass through ([#39](https://www.github.com/grain-lang/libbinaryen/issues/39)) ([a89fad6](https://www.github.com/grain-lang/libbinaryen/commit/a89fad610435b327df333cb0ef687087be0fd536))
+
 ## [103.0.0](https://www.github.com/grain-lang/libbinaryen/compare/v102.0.0...v103.0.0) (2022-01-11)
 
 
