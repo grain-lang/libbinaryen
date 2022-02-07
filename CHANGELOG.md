@@ -9,7 +9,6 @@
 
 ### Features
 
-* Update binaryen to version_104 ([8106ec5](https://github.com/grain-lang/libbinaryen/commit/8106ec5af48871a09f618807ab7d2373a6f8c572))
 * Update binaryen to version_104 ([#42](https://github.com/grain-lang/libbinaryen/issues/42)) ([2000604](https://github.com/grain-lang/libbinaryen/commit/20006049db29f5256c69524821af2424484e0448))
 
 ### [103.0.1](https://www.github.com/grain-lang/libbinaryen/compare/v103.0.0...v103.0.1) (2022-01-20)
