@@ -1,5 +1,17 @@
 # Changelog
 
+## [105.0.0](https://github.com/grain-lang/libbinaryen/compare/v104.0.0...v105.0.0) (2022-03-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade binaryen to version_105 (#46)
+
+### Features
+
+* Remove unnecessary conf-python-3 dependency ([e1d386e](https://github.com/grain-lang/libbinaryen/commit/e1d386e3c8f219ecf8f3c50064302b818e5bd951))
+* Upgrade binaryen to version_105 ([#46](https://github.com/grain-lang/libbinaryen/issues/46)) ([e1d386e](https://github.com/grain-lang/libbinaryen/commit/e1d386e3c8f219ecf8f3c50064302b818e5bd951))
+
 ## [104.0.0](https://github.com/grain-lang/libbinaryen/compare/v103.0.1...v104.0.0) (2022-02-07)
 
 
