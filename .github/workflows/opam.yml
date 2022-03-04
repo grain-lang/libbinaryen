@@ -27,7 +27,6 @@ jobs:
 
       - name: Inspect depexts
         run: |
-          opam exec -- which python
           opam exec -- which cmake
 
       - name: Install local dependencies

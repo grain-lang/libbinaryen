@@ -19,14 +19,6 @@ Inside your dune file, you can depend on `libbinaryen` as such:
   (flags :standard -O2 -Wall -Wextra)))
 ```
 
-## Dependencies
-
-This project requires `CMake` and `python` (v3.5 or greater).
-
-When installing with opam, both of these dependencies will be checked using `conf-cmake` and `conf-python-3`.
-
-When installing with esy, CMake will be built from source, and, on Mac or Linux, Python must be globally installed within a location that esy knows about (those being `/usr/local/bin`, `/usr/bin`, `/bin`, `/usr/sbin`, or `/sbin`). On Windows, a suitable python is already available from esy-bash.
-
 ## MacOS C++ Compiler
 
 When including this library in your `dune` MacOS executables, you'll need to specify `-cc clang++` in your `(flags)` stanza. This is required because Binaryen will throw errors for itself to catch and using `clang++` is the only way to handle them correctly. You can find more info on this [ocaml issue](https://github.com/ocaml/ocaml/issues/10423).

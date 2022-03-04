@@ -13,7 +13,6 @@ build: [
 ]
 depends: [
   "conf-cmake" {build}
-  "conf-python-3" {build}
   "dune" {>= "2.9.1"}
   "dune-configurator" {>= "2.9.1"}
   "ocaml" {>= "4.12"}
