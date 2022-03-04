@@ -1,5 +1,5 @@
 opam-version: "2.0"
-version: "104.0.0"
+version: "105.0.0"
 synopsis: "Libbinaryen packaged for OCaml"
 maintainer: "blaine@grain-lang.org"
 author: "Blaine Bublitz"
