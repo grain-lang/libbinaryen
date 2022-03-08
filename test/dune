@@ -5,7 +5,9 @@
  (foreign_stubs
   (language c)
   (names binaryen_stubs_types)
-  (flags :standard -O2 -Wall -Wextra)))
+  (flags :standard -O2 -Wall -Wextra))
+ (js_of_ocaml
+  (javascript_files types.js)))
 
 (test
  (name test)
@@ -16,3 +18,19 @@
   (:include ./config/flags.sexp))
  (action
   (run %{test})))
+
+(rule
+ (target test_js.ml)
+ (action
+  (copy %{dep:test.ml} %{target})))
+
+(test
+ (name test_js)
+ (modules test_js)
+ (modes
+  (byte js))
+ (libraries binaryen)
+ (action
+  (run node %{dep:test_js.bc.js}))
+ (js_of_ocaml
+  (flags --no-sourcemap --disable share)))
