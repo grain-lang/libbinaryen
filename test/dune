@@ -26,6 +26,9 @@
 
 (test
  (name test_js)
+ (enabled_if
+  ; TODO: Switch to `bin-available:node` after dune 3
+  (<> %{system} mingw64))
  (modules test_js)
  (modes
   (byte js))
