@@ -1,5 +1,12 @@
 # Changelog
 
+## [105.1.0](https://github.com/grain-lang/libbinaryen/compare/v105.0.0...v105.1.0) (2022-03-09)
+
+
+### Features
+
+* Provide binaryen.js with library ([#48](https://github.com/grain-lang/libbinaryen/issues/48)) ([f389527](https://github.com/grain-lang/libbinaryen/commit/f389527a95ff845996e2ecaa5118c4bbe30a1ab9))
+
 ## [105.0.0](https://github.com/grain-lang/libbinaryen/compare/v104.0.0...v105.0.0) (2022-03-04)
 
 
