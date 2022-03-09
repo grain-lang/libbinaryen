@@ -13,8 +13,9 @@ build: [
 ]
 depends: [
   "conf-cmake" {build}
-  "dune" {>= "2.9.1"}
-  "dune-configurator" {>= "2.9.1"}
+  "dune" {>= "2.9.1" < "3.0.0"}
+  "dune-configurator" {>= "2.9.1" < "3.0.0"}
+  "js_of_ocaml-compiler" {with-test & >= "3.10.0" < "4.0.0"}
   "ocaml" {>= "4.12"}
 ]
 depexts: [
