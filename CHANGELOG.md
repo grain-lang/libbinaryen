@@ -5,7 +5,7 @@
 
 ### ⚠ BREAKING CHANGES
 
-* Update binaryen to version_107 (#57)
+* Update binaryen to version_107 ([#57](https://github.com/grain-lang/libbinaryen/issues/57))
 
 ### Features
 
