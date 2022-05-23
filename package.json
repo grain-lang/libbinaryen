@@ -7,11 +7,11 @@
   "dependencies": {
     "ocaml": ">= 4.12.0",
     "@opam/conf-cmake": "grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869",
-    "@opam/dune": ">= 2.9.1 < 3.0.0",
-    "@opam/dune-configurator": ">= 2.9.1 < 3.0.0"
+    "@opam/dune": ">= 2.9.1",
+    "@opam/dune-configurator": ">= 2.9.1"
   },
   "devDependencies": {
-    "@opam/js_of_ocaml-compiler": ">= 3.10.0 < 4.0.0",
+    "@opam/js_of_ocaml-compiler": ">= 3.10.0",
     "@opam/ocamlformat": "0.20.1",
     "@opam/ocaml-lsp-server": "^1.9.1"
   },
