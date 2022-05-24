@@ -1,5 +1,12 @@
 # Changelog
 
+### [107.0.1](https://github.com/grain-lang/libbinaryen/compare/v107.0.0...v107.0.1) (2022-05-24)
+
+
+### Bug Fixes
+
+* Remove upper bounds on dependencies ([#60](https://github.com/grain-lang/libbinaryen/issues/60)) ([3a75c23](https://github.com/grain-lang/libbinaryen/commit/3a75c23941e1387d07a686dfa06266f517100c8f))
+
 ## [107.0.0](https://github.com/grain-lang/libbinaryen/compare/v106.0.0...v107.0.0) (2022-05-06)
 
 
