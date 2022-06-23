@@ -1,5 +1,5 @@
 //Provides: caml_binaryen_type_none
-//Requires: binaryen
+//Requires: Binaryen
 function caml_binaryen_type_none() {
-  return binaryen.none;
+  return Binaryen.none;
 }
