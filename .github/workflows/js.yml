@@ -1,0 +1,60 @@
+name: Generate Binaryen.js
+on:
+  - push
+
+jobs:
+  build:
+    name: "Build with emsdk"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup node.js
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: '16'
+          check-latest: true
+
+      - name: "Set up emsdk"
+        run: |
+          mkdir $HOME/emsdk
+          git clone --depth 1 https://github.com/emscripten-core/emsdk.git $HOME/emsdk
+          $HOME/emsdk/emsdk update-tags
+          $HOME/emsdk/emsdk install tot
+          $HOME/emsdk/emsdk activate tot
+          echo "$HOME/emsdk" >> $GITHUB_PATH
+
+      - name: "Set up CMake"
+        run: |
+          mkdir $HOME/cmake
+          wget -qO- https://github.com/Kitware/CMake/releases/download/v3.21.4/cmake-3.21.4-Linux-x86_64.tar.gz | tar -xzC $HOME/cmake --strip-components 1
+          echo "$HOME/cmake/bin" >> $GITHUB_PATH
+
+      - name: Checkout project
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+
+      - name: "Build binaryen.es5.js"
+        run: |
+          mkdir ./binaryen/build
+          cd ./binaryen/build
+          source $HOME/emsdk/emsdk_env.sh
+          emcc --version
+          emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DJS_OF_OCAML=ON
+          emmake make -j2 binaryen_js
+          cd ../..
+          mv ./binaryen/build/bin/binaryen_js.js binaryen.es5.js
+
+      # Setup a "bot" name & email for our commit step
+      # using the GitHub Actions bot user: https://github.community/t/github-actions-bot-email-address/17204/6
+      - name: Configure git
+        run: |
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+      # Only commit if there's a change. Ref https://stackoverflow.com/a/8123841
+      - name: Commit binaryen.es5.js
+        run: |
+          git add binaryen.es5.js
+          git diff-index --quiet HEAD || git commit -m 'chore: Rebuild binaryen.es5.js'
+          git push
