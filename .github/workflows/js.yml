@@ -40,7 +40,7 @@ jobs:
           cd ./binaryen/build
           source $HOME/emsdk/emsdk_env.sh
           emcc --version
-          emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DJS_OF_OCAML=ON
+          emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DJS_OF_OCAML=ON -DBUILD_TOOLS=OFF -DBUILD_TESTS=OFF
           emmake make -j2 binaryen_js
           cd ../..
           mv ./binaryen/build/bin/binaryen_js.js binaryen.es5.js

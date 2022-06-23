@@ -41,6 +41,7 @@
      "Unix Makefiles"
      -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_TESTS=OFF
+     -DBUILD_TOOLS=OFF
      -DBUILD_STATIC_LIB=ON
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
@@ -67,6 +68,7 @@
      "Unix Makefiles"
      -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_TESTS=OFF
+     -DBUILD_TOOLS=OFF
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
@@ -95,6 +97,7 @@
      "Unix Makefiles"
      -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_TESTS=OFF
+     -DBUILD_TOOLS=OFF
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
@@ -121,6 +124,7 @@
      "Unix Makefiles"
      -DCMAKE_CXX_FLAGS=-Wno-unused-variable
      -DBUILD_TESTS=OFF
+     -DBUILD_TOOLS=OFF
      -DCMAKE_SHARED_LIBRARY_PREFIX_CXX=lib
      -DBUILD_STATIC_LIB=OFF
      -DCMAKE_BUILD_TYPE=Release
