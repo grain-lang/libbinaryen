@@ -1,5 +1,24 @@
 # Changelog
 
+## [108.0.0](https://github.com/grain-lang/libbinaryen/compare/v107.0.1...v108.0.0) (2022-06-25)
+
+
+### ⚠ BREAKING CHANGES
+
+* Change js_of_ocaml binding to Binaryen
+* Avoid building tools
+* Update binaryen to version_108 (#62)
+
+### Features
+
+* Update binaryen to version_108 ([#62](https://github.com/grain-lang/libbinaryen/issues/62)) ([1e69a07](https://github.com/grain-lang/libbinaryen/commit/1e69a071c6cb905dd8d8e1b86957222f29243ed0))
+
+
+### Miscellaneous Chores
+
+* Avoid building tools ([1e69a07](https://github.com/grain-lang/libbinaryen/commit/1e69a071c6cb905dd8d8e1b86957222f29243ed0))
+* Change js_of_ocaml binding to Binaryen ([1e69a07](https://github.com/grain-lang/libbinaryen/commit/1e69a071c6cb905dd8d8e1b86957222f29243ed0))
+
 ### [107.0.1](https://github.com/grain-lang/libbinaryen/compare/v107.0.0...v107.0.1) (2022-05-24)
 
 
