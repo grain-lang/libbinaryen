@@ -2,6 +2,7 @@
  (name libbinaryen_c)
  (public_name libbinaryen.c)
  (foreign_archives binaryen)
+ (c_library_flags :standard -lstdc++)
  (install_c_headers binaryen-c)
  (js_of_ocaml
   (javascript_files binaryen.es5.js)))
