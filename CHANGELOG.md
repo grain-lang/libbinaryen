@@ -1,5 +1,16 @@
 # Changelog
 
+## [109.0.0](https://github.com/grain-lang/libbinaryen/compare/v108.0.0...v109.0.0) (2022-10-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update binaryen to version_109 (#65)
+
+### Features
+
+* Update binaryen to version_109 ([#65](https://github.com/grain-lang/libbinaryen/issues/65)) ([f79c848](https://github.com/grain-lang/libbinaryen/commit/f79c84871122d40c4dacbb2f9db8c40657b85677))
+
 ## [108.0.0](https://github.com/grain-lang/libbinaryen/compare/v107.0.1...v108.0.0) (2022-06-25)
 
 
