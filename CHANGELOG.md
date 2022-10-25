@@ -1,5 +1,12 @@
 # Changelog
 
+### [109.0.1](https://github.com/grain-lang/libbinaryen/compare/v109.0.0...v109.0.1) (2022-10-25)
+
+
+### Bug Fixes
+
+* Disable the maybe-uninitialized error in newer gcc ([#69](https://github.com/grain-lang/libbinaryen/issues/69)) ([2b6834a](https://github.com/grain-lang/libbinaryen/commit/2b6834ad6d5fb19618b4a234ae133ddd6918e275))
+
 ## [109.0.0](https://github.com/grain-lang/libbinaryen/compare/v108.0.0...v109.0.0) (2022-10-20)
 
 
