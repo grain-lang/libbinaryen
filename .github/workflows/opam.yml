@@ -36,4 +36,4 @@ jobs:
         run: opam exec -- dune build
 
       - name: Run tests
-        run: opam exec -- dune runtest
+        run: opam exec -- dune runtest --display=short
