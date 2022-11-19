@@ -7,8 +7,8 @@
   "dependencies": {
     "ocaml": ">= 4.12.0",
     "@opam/conf-cmake": "grain-lang/cmake:esy.json#1cead3871bbb27a45adab2263ef2dff4a38a8869",
-    "@opam/dune": ">= 2.9.1",
-    "@opam/dune-configurator": ">= 2.9.1"
+    "@opam/dune": ">= 3.0.0",
+    "@opam/dune-configurator": ">= 3.0.0"
   },
   "devDependencies": {
     "@opam/js_of_ocaml-compiler": ">= 3.10.0 < 5.0.0",
