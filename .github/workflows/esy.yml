@@ -24,7 +24,7 @@ jobs:
       # It also adds `shx` globally for cross-platform shell commands
       - name: Setup environment
         run: |
-          npm i -g esy@next
+          npm i -g esy
           npm i -g shx
 
       - name: Checkout project
