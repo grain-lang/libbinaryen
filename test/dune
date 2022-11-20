@@ -9,10 +9,8 @@
  (js_of_ocaml
   (javascript_files types.js)))
 
-(tests
- (names test)
- (enabled_if
-  (= {bin-available:node} true))
+(test
+ (name test)
  (modules test)
  (libraries binaryen)
  (modes exe js)
@@ -21,14 +19,3 @@
   (:include ./config/flags.sexp))
  (js_of_ocaml
   (flags --no-sourcemap)))
-
-(tests
- (names test)
- (enabled_if
-  (= {bin-available:node} false))
- (modules test)
- (libraries binaryen)
- (modes exe)
- (flags
-  :standard
-  (:include ./config/flags.sexp)))
