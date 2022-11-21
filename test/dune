@@ -11,6 +11,8 @@
 
 (test
  (name test)
+ (enabled_if
+  (= %{bin-available:node} true))
  (modules test)
  (libraries binaryen)
  (modes exe js)
@@ -19,3 +21,19 @@
   (:include ./config/flags.sexp))
  (js_of_ocaml
   (flags --no-sourcemap)))
+
+(rule
+ (target test_no_js.ml)
+ (action
+  (copy %{dep:test.ml} %{target})))
+
+(test
+ (name test_no_js)
+ (enabled_if
+  (= %{bin-available:node} false))
+ (modules test_no_js)
+ (libraries binaryen)
+ (modes exe)
+ (flags
+  :standard
+  (:include ./config/flags.sexp)))
