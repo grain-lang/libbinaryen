@@ -28,6 +28,7 @@ jobs:
       - name: Inspect depexts
         run: |
           opam exec -- which cmake
+          opam exec -- flexlink -help
 
       - name: Install local dependencies
         run: opam install . --deps-only --with-test
