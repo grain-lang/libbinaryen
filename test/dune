@@ -13,7 +13,9 @@
  (name test)
  (modules test)
  (libraries binaryen)
- (flags :standard -ccopt -- -ccopt -static)
+ (flags
+  :standard
+  (:include ./config/flags.sexp))
  (action
   (run %{test})))
 
