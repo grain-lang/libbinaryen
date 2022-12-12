@@ -10,14 +10,7 @@ let () =
             (* These flags preserve the original C++ error behavior. Ref https://github.com/ocaml/ocaml/issues/10423 *)
             [ "-cc"; "clang++" ]
         | Some "mingw64" ->
-            [
-              "-ccopt";
-              "-l:libpthread.a";
-              "-ccopt";
-              "-link";
-              "-ccopt";
-              "-static-libstdc++";
-            ]
+            [ "-ccopt"; "-l:libpthread.a"; "-ccopt"; "-l:libstdc++.a" ]
         | Some _ -> default
         | None -> default
       in
