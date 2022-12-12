@@ -13,7 +13,7 @@
   "devDependencies": {
     "@opam/js_of_ocaml-compiler": ">= 3.10.0 < 5.0.0",
     "@opam/ocamlformat": "0.24.1",
-    "@opam/ocaml-lsp-server": "> 1.14.2 < 1.15.0"
+    "@opam/ocaml-lsp-server": "1.14.1"
   },
   "resolutions": {
     "ocaml": "phated/ocaml:package.json#ef896268d711aedf96826075706df7d119271d62",

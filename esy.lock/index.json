@@ -1,5 +1,5 @@
 {
-  "checksum": "2511f5b4b77e66a0ba0217292584feb2",
+  "checksum": "b97b09547b6b509d8c23652897d1b1b0",
   "root": "@grain/libbinaryen@link-dev:./package.json",
   "node": {
     "ocaml@github:phated/ocaml:package.json#ef896268d711aedf96826075706df7d119271d62@d41d8cd9": {
@@ -829,20 +829,20 @@
         "@opam/dune@opam:3.6.1@662f326b"
       ]
     },
-    "@opam/ocaml-lsp-server@opam:1.12.4@c24ab770": {
-      "id": "@opam/ocaml-lsp-server@opam:1.12.4@c24ab770",
+    "@opam/ocaml-lsp-server@opam:1.14.1@ac41cc96": {
+      "id": "@opam/ocaml-lsp-server@opam:1.14.1@ac41cc96",
       "name": "@opam/ocaml-lsp-server",
-      "version": "opam:1.12.4",
+      "version": "opam:1.14.1",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/sha256/91/919b98027cbc56359dabe8a911d3d24d1706cea8cd04e8173a2d1d3b06f9d846#sha256:919b98027cbc56359dabe8a911d3d24d1706cea8cd04e8173a2d1d3b06f9d846",
-          "archive:https://github.com/ocaml/ocaml-lsp/releases/download/1.12.4/lsp-1.12.4.tbz#sha256:919b98027cbc56359dabe8a911d3d24d1706cea8cd04e8173a2d1d3b06f9d846"
+          "archive:https://opam.ocaml.org/cache/sha256/e6/e64c4c33dd037791fcc9bedfd4d615dda6d169e3eaced150f365539dacab69d9#sha256:e64c4c33dd037791fcc9bedfd4d615dda6d169e3eaced150f365539dacab69d9",
+          "archive:https://github.com/ocaml/ocaml-lsp/releases/download/1.14.1/lsp-1.14.1.tbz#sha256:e64c4c33dd037791fcc9bedfd4d615dda6d169e3eaced150f365539dacab69d9"
         ],
         "opam": {
           "name": "ocaml-lsp-server",
-          "version": "1.12.4",
-          "path": "esy.lock/opam/ocaml-lsp-server.1.12.4"
+          "version": "1.14.1",
+          "path": "esy.lock/opam/ocaml-lsp-server.1.14.1"
         }
       },
       "overrides": [],
@@ -1575,7 +1575,7 @@
       ],
       "devDependencies": [
         "@opam/ocamlformat@opam:0.24.1@80ba1b34",
-        "@opam/ocaml-lsp-server@opam:1.12.4@c24ab770",
+        "@opam/ocaml-lsp-server@opam:1.14.1@ac41cc96",
         "@opam/js_of_ocaml-compiler@opam:4.1.0@4d526669"
       ],
       "installConfig": { "pnp": false }
