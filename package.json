@@ -16,7 +16,7 @@
     "@opam/ocaml-lsp-server": "1.14.1"
   },
   "resolutions": {
-    "ocaml": "phated/ocaml:package.json#ef896268d711aedf96826075706df7d119271d62",
+    "ocaml": "phated/ocaml:package.json#a25997805f1ce225f23c0321e827c0d503896017",
     "@opam/ocp-indent": "1.7.0"
   },
   "esy": {
