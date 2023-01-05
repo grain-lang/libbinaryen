@@ -29,11 +29,18 @@ jobs:
 
       - name: Setup OCaml ${{ matrix.ocaml-compiler }}
         uses: ocaml/setup-ocaml@v2
+        if: ${{ startsWith(matrix.os, 'windows-') }}
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
           opam-repositories: |
             default: https://github.com/fdopen/opam-repository-mingw.git#opam2
             upstream: https://github.com/ocaml/opam-repository.git
+
+      - name: Setup OCaml ${{ matrix.ocaml-compiler }}
+        uses: ocaml/setup-ocaml@v2
+        if: ${{ !startsWith(matrix.os, 'windows-') }}
+        with:
+          ocaml-compiler: ${{ matrix.ocaml-compiler }}
 
       - name: Inspect depexts
         run: |
