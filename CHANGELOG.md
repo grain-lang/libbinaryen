@@ -1,5 +1,24 @@
 # Changelog
 
+## [110.0.0](https://github.com/grain-lang/libbinaryen/compare/v109.0.1...v110.0.0) (2023-01-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Require dune 3.0 to better support js_of_ocaml
+* Require js_of_ocaml 4.1 to ensure optimization fix
+* Update binaryen to version_110 ([#72](https://github.com/grain-lang/libbinaryen/issues/72))
+
+### Features
+
+* Update binaryen to version_110 ([#72](https://github.com/grain-lang/libbinaryen/issues/72)) ([008d8ff](https://github.com/grain-lang/libbinaryen/commit/008d8ffa7431a0190b05db9b33a15c52044435c2))
+
+
+### Miscellaneous Chores
+
+* Require dune 3.0 to better support js_of_ocaml ([008d8ff](https://github.com/grain-lang/libbinaryen/commit/008d8ffa7431a0190b05db9b33a15c52044435c2))
+* Require js_of_ocaml 4.1 to ensure optimization fix ([008d8ff](https://github.com/grain-lang/libbinaryen/commit/008d8ffa7431a0190b05db9b33a15c52044435c2))
+
 ### [109.0.1](https://github.com/grain-lang/libbinaryen/compare/v109.0.0...v109.0.1) (2022-10-25)
 
 
