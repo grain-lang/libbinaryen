@@ -20,10 +20,18 @@ jobs:
         with:
           submodules: "recursive"
 
+      - name: Hack Git CRLF for ocaml/setup-ocaml with MinGW and upstream repository
+        if: ${{ startsWith(matrix.os, 'windows-') }}
+        run: |
+          git config --system core.autocrlf input
+
       - name: Setup OCaml ${{ matrix.ocaml-compiler }}
         uses: ocaml/setup-ocaml@v2
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
+          opam-repositories: |
+            upstream: https://github.com/ocaml/opam-repository.git
+            default: https://github.com/fdopen/opam-repository-mingw.git#opam2
 
       - name: Inspect depexts
         run: |
