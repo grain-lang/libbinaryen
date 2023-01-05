@@ -11,29 +11,29 @@
 
 (test
  (name test)
+ (enabled_if
+  (= %{bin-available:node} true))
  (modules test)
  (libraries binaryen)
+ (modes exe js)
  (flags
   :standard
   (:include ./config/flags.sexp))
- (action
-  (run %{test})))
+ (js_of_ocaml
+  (flags --no-sourcemap)))
 
 (rule
- (target test_js.ml)
+ (target test_no_js.ml)
  (action
   (copy %{dep:test.ml} %{target})))
 
 (test
- (name test_js)
+ (name test_no_js)
  (enabled_if
-  ; TODO: Switch to `bin-available:node` after dune 3
-  (<> %{system} mingw64))
- (modules test_js)
- (modes
-  (byte js))
+  (= %{bin-available:node} false))
+ (modules test_no_js)
  (libraries binaryen)
- (action
-  (run node %{dep:test_js.bc.js}))
- (js_of_ocaml
-  (flags --no-sourcemap --disable share)))
+ (modes exe)
+ (flags
+  :standard
+  (:include ./config/flags.sexp)))
