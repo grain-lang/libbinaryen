@@ -20,6 +20,8 @@ jobs:
         with:
           submodules: "recursive"
 
+      # This is supposed to be solved by the time opam 2.2.0 is released
+      # Hack provided by https://github.com/ocaml/setup-ocaml/issues/529#issuecomment-1142547616
       - name: Hack Git CRLF for ocaml/setup-ocaml with MinGW and upstream repository
         if: ${{ startsWith(matrix.os, 'windows-') }}
         run: |
