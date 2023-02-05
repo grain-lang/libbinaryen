@@ -45,6 +45,56 @@ jobs:
       - name: Inspect depexts
         run: |
           opam exec -- which cmake
+          opam exec -- which gcc
+          opam exec -- which g++
+          opam exec -- gcc --version
+          opam exec -- g++ --version
+
+      - name: Install local dependencies
+        run: opam install . --deps-only --with-test
+
+      - name: Build project
+        run: opam exec -- dune build
+
+      - name: Run tests
+        run: opam exec -- dune runtest --display=short
+
+  build_gcc10:
+    name: Test GCC 10
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        ocaml-compiler: [4.14.0]
+
+    steps:
+      - name: Setup gcc 10
+        run: |
+          sudo apt update
+          sudo apt install gcc-10
+          sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 100
+          sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+
+      - name: Checkout project
+        uses: actions/checkout@v3.1.0
+        with:
+          submodules: "recursive"
+
+      - name: Setup OCaml ${{ matrix.ocaml-compiler }}
+        uses: ocaml/setup-ocaml@v2
+        if: ${{ !startsWith(matrix.os, 'windows-') }}
+        with:
+          ocaml-compiler: ${{ matrix.ocaml-compiler }}
+
+      - name: Inspect depexts
+        run: |
+          opam exec -- which cmake
+          opam exec -- which gcc
+          opam exec -- which g++
+          opam exec -- gcc --version
+          opam exec -- g++ --version
 
       - name: Install local dependencies
         run: opam install . --deps-only --with-test
