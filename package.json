@@ -11,11 +11,12 @@
     "@opam/dune-configurator": ">= 3.0.0"
   },
   "devDependencies": {
-    "@opam/js_of_ocaml-compiler": ">= 4.1.0 < 5.0.0",
+    "@opam/js_of_ocaml-compiler": "*",
     "@opam/ocamlformat": "0.24.1",
     "@opam/ocaml-lsp-server": "> 1.9.1 < 1.13.0"
   },
   "resolutions": {
+    "@opam/js_of_ocaml-compiler": "ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#2b51785a55422f5edc67e687cc35065f662d8839",
     "@opam/ocp-indent": "1.7.0"
   },
   "esy": {
