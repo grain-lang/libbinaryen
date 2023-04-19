@@ -16,7 +16,7 @@
     "@opam/ocaml-lsp-server": "> 1.9.1 < 1.13.0"
   },
   "resolutions": {
-    "@opam/js_of_ocaml-compiler": "ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#2b51785a55422f5edc67e687cc35065f662d8839",
+    "@opam/js_of_ocaml-compiler": "ocsigen/js_of_ocaml:js_of_ocaml-compiler.opam#880e44f8971d66de9a67f90944a7a27443cbf9bf",
     "@opam/ocp-indent": "1.7.0"
   },
   "esy": {
