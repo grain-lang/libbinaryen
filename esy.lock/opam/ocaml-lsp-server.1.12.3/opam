@@ -20,6 +20,7 @@ bug-reports: "https://github.com/ocaml/ocaml-lsp/issues"
 depends: [
   "dune" {>= "3.0"}
   "yojson"
+  "uri" {>= "4.0.0"}
   "re" {>= "1.5.0"}
   "ppx_yojson_conv_lib" {>= "v0.14"}
   "dune-rpc"
@@ -54,10 +55,10 @@ build: [
 ]
 url {
   src:
-    "https://github.com/ocaml/ocaml-lsp/releases/download/1.12.4/lsp-1.12.4.tbz"
+    "https://github.com/ocaml/ocaml-lsp/releases/download/1.12.3/lsp-1.12.3.tbz"
   checksum: [
-    "sha256=919b98027cbc56359dabe8a911d3d24d1706cea8cd04e8173a2d1d3b06f9d846"
-    "sha512=68898112f13b7ee13040933ed95597e59f83e42ac9d6ead375baa2d1248b1614b5b80ae5e0d839f7f5a8372fd1f47e6bf308d331ca1df90cb4b9927825f89635"
+    "sha256=6ef4a5445ba53baf1cf18a59fb712cc20d3d3257d0ce7d8f0e24408bf0aadbf3"
+    "sha512=33156e369c2b539767c382644d020627fc925eceae4552cc14a361254d2dbae3d6261d502d717e98709c1e1a74c73f10d8e66ac3f26c781d0080b330bb46eb9d"
   ]
 }
-x-commit-hash: "f53ad362aa2c47216dd96d32b22bb95ee3e774e4"
+x-commit-hash: "3ea0bb30ba32bbf0b79934d06266b16f873169c1"
