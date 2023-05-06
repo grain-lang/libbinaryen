@@ -21,6 +21,3 @@ depends: [
 depexts: [
   ["gcc-g++"] { os-distribution = "cygwinports" }
 ]
-pin-depends: [
-  ["js_of_ocaml-compiler.5.1.2" "git+https://github.com/ocsigen/js_of_ocaml#880e44f8971d66de9a67f90944a7a27443cbf9bf"]
-]
