@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Setup node.js
-        uses: actions/setup-node@v3.5.1
+        uses: actions/setup-node@v3.6.0
         with:
           node-version: "16"
           check-latest: true
@@ -31,7 +31,7 @@ jobs:
           echo "$HOME/cmake/bin" >> $GITHUB_PATH
 
       - name: Checkout project
-        uses: actions/checkout@v3.1.0
+        uses: actions/checkout@v3.5.3
         with:
           submodules: "recursive"
 
