@@ -1,5 +1,12 @@
 # Changelog
 
+## [111.1.0](https://github.com/grain-lang/libbinaryen/compare/v111.0.0...v111.1.0) (2023-07-04)
+
+
+### Features
+
+* Relax the js_of_ocaml version range ([#78](https://github.com/grain-lang/libbinaryen/issues/78)) ([5863fe7](https://github.com/grain-lang/libbinaryen/commit/5863fe790b831c6e3888ce353598911ff17777c2))
+
 ## [111.0.0](https://github.com/grain-lang/libbinaryen/compare/v110.0.0...v111.0.0) (2023-02-07)
 
 
