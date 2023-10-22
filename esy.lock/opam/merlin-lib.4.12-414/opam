@@ -10,7 +10,7 @@ build: [
   ["dune" "build" "-p" name "-j" jobs]
 ]
 depends: [
-  "ocaml" {>= "5.1" & < "5.2"}
+  "ocaml" {>= "4.14" & < "4.15"}
   "dune" {>= "2.9.0"}
   "csexp" {>= "1.5.1"}
   "menhir"    {dev & >= "20201216"}
@@ -25,10 +25,10 @@ description:
   thoroughly documented, and its public API might break with any new release."
 url {
   src:
-    "https://github.com/ocaml/merlin/releases/download/v4.12-501/merlin-4.12-501.tbz"
+    "https://github.com/ocaml/merlin/releases/download/v4.12-414/merlin-4.12-414.tbz"
   checksum: [
-    "sha256=cccc33235497403590f4f68a2f8a3727a265463984b3b9645ebc1abb2f9088c0"
-    "sha512=95ece87b42316824cc5c847bada2bb1f2131a2b75b00a79d561f1ff801d107146df6d2732cf340d5000a0de373a03d09714a35f75b0ec1e6ab869b2cdaf065e8"
+    "sha256=b603144f82b215e26e6d8558d5276ff59bcf07527072a106702bb0b8ca971d14"
+    "sha512=3bf4f5e4754def9818ce0abbdf2253fe9d5e0abec7e8814012e2ff9de6a174f288c257780eb9f8aa4d794c0b62a524848d579d2a3495a5747a0970ee9fbfff29"
   ]
 }
-x-commit-hash: "fcc3157ab0b2ecccf6ac530d8add326fdbf9fb1c"
+x-commit-hash: "cc56ce484b89890cd08fd77c1dd17682834134b8"
