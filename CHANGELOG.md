@@ -1,5 +1,16 @@
 # Changelog
 
+## [114.0.0](https://github.com/grain-lang/libbinaryen/compare/v113.0.0...v114.0.0) (2023-10-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to libbinaryen v114 ([#87](https://github.com/grain-lang/libbinaryen/issues/87))
+
+### Features
+
+* Upgrade to libbinaryen v114 ([#87](https://github.com/grain-lang/libbinaryen/issues/87)) ([cb7574b](https://github.com/grain-lang/libbinaryen/commit/cb7574b2442aea58e8150200018b105ed67ee783))
+
 ## [113.0.0](https://github.com/grain-lang/libbinaryen/compare/v112.0.0...v113.0.0) (2023-09-14)
 
 
