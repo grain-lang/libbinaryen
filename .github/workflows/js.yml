@@ -20,8 +20,8 @@ jobs:
         run: |
           mkdir $HOME/emsdk
           git clone --depth 1 https://github.com/emscripten-core/emsdk.git $HOME/emsdk
-          $HOME/emsdk/emsdk install 3.1.17
-          $HOME/emsdk/emsdk activate 3.1.17
+          $HOME/emsdk/emsdk install 3.1.47
+          $HOME/emsdk/emsdk activate 3.1.47
           echo "$HOME/emsdk" >> $GITHUB_PATH
 
       - name: "Set up CMake"
