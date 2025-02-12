@@ -19,8 +19,7 @@
  (flags
   :standard
   (:include ./config/flags.sexp))
- (js_of_ocaml
-  (flags --no-sourcemap)))
+ (js_of_ocaml))
 
 (rule
  (target test_no_js.ml)
