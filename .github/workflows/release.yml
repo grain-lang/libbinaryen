@@ -7,7 +7,7 @@ on:
 jobs:
   release-please:
     name: Create Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
@@ -54,7 +54,7 @@ jobs:
   opam-release:
     needs: [release-please, add-archive]
     name: Publish to opam registry
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Setup bot user
         run: |
@@ -99,7 +99,7 @@ jobs:
   npm-release:
     needs: [add-archive]
     name: Publish to npm registry
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Setup NodeJS
         uses: actions/setup-node@v3.6.0
