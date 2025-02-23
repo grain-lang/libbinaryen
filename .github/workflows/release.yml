@@ -7,7 +7,7 @@ on:
 jobs:
   release-please:
     name: Create Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       tag_name: ${{ steps.release.outputs.tag_name }}
@@ -54,7 +54,7 @@ jobs:
   opam-release:
     needs: [release-please, add-archive]
     name: Publish to opam registry
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Setup bot user
         run: |
@@ -86,20 +86,18 @@ jobs:
         with:
           ocaml-compiler: 4.14.0
 
-      # Version 2.1.0 of opam-publish doesn't respect OPAMYES=1
-      # Ref https://github.com/ocaml-opam/opam-publish/issues/132#issuecomment-963616802
       - name: Install publish utils
         run: |
-          opam install opam-publish=2.0.3
+          opam install opam-publish=2.4.0
 
       - name: Publish to opam
         run: |
-          opam publish --no-browser --msg-file=CHANGES.md ${{ needs.add-archive.outputs.browser_download_url }}
+          opam publish --no-confirmation --no-browser --msg-file=CHANGES.md ${{ needs.add-archive.outputs.browser_download_url }}
 
   npm-release:
     needs: [add-archive]
     name: Publish to npm registry
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Setup NodeJS
         uses: actions/setup-node@v3.6.0
