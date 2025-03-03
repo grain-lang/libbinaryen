@@ -125,6 +125,7 @@
      binaryen
      -G
      "Unix Makefiles"
+     "-DCMAKE_SYSTEM_NAME=Windows" 
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized"
      -DBUILD_TESTS=OFF
