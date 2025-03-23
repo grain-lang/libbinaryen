@@ -125,6 +125,8 @@
      binaryen
      -G
      "Unix Makefiles"
+     -DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc
+     -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++
      "-DCMAKE_SYSTEM_NAME=Windows" 
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized"

@@ -24,9 +24,7 @@
       "dune build -p libbinaryen -j 4"
     ],
     "buildEnv": {
-      "PATH": "#{os == 'windows' ? '/usr/x86_64-w64-mingw32/sys-root/mingw/bin' : '' : $PATH }",
-      "CC": "#{os == 'windows' ? 'x86_64-w64-mingw32-gcc' : ''}",
-      "CXX": "#{os == 'windows' ? 'x86_64-w64-mingw32-g++' : ''}"
+      "PATH": "#{os == 'windows' ? '/usr/x86_64-w64-mingw32/sys-root/mingw/bin' : '' : $PATH }"
     },
     "exportedEnv": {
       "PATH": {
