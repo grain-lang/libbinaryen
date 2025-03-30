@@ -15,7 +15,6 @@ jobs:
         ocaml-compiler: [4.13.1, 4.14.1, 5.3.0]
 
     steps:
-      # Js_of_ocaml fails below node 22: https://github.com/ocsigen/js_of_ocaml/issues/1845
       - name: Setup node.js
         uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
         with:
