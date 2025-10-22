@@ -41,6 +41,8 @@
      "Unix Makefiles"
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-stringop-overread"
+     ; Clang 17 seems to trigger `-unused-but-set-variable` and `-Werror` overrides `-Wno-unused-but-set-variable`
+     -DENABLE_WERROR=OFF
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
      -DBUILD_STATIC_LIB=ON
@@ -69,6 +71,8 @@
      "Unix Makefiles"
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized"
+     ; Clang 17 seems to trigger `-unused-but-set-variable` and `-Werror` overrides `-Wno-unused-but-set-variable`
+     -DENABLE_WERROR=OFF
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
      -DBUILD_STATIC_LIB=OFF
