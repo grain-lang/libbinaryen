@@ -1,5 +1,12 @@
 # Changelog
 
+## [117.0.0-b](https://github.com/grain-lang/libbinaryen/compare/v117.0.0...v117.0.0-b) (2025-10-22)
+
+### Features
+
+* Update libbinaryen v117 for esy@0.8.0 and ocaml 5 ([#119](https://github.com/grain-lang/libbinaryen/pull/119))
+
+
 ## [117.0.0](https://github.com/grain-lang/libbinaryen/compare/v116.0.0...v117.0.0) (2025-03-02)
 
 
