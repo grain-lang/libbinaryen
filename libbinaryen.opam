@@ -21,3 +21,4 @@ depends: [
 depexts: [
   ["gcc-g++"] { os-distribution = "cygwinports" }
 ]
+x-maintenance-intent: ["(latest)"]
