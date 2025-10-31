@@ -40,7 +40,7 @@
      -G
      "Unix Makefiles"
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
-     "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized Wno-deprecated-declarations"
+     "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations"
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
      -DBUILD_STATIC_LIB=ON
