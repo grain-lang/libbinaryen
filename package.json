@@ -1,6 +1,6 @@
 {
   "name": "@grain/libbinaryen",
-  "version": "121.0.0",
+  "version": "122.0.0",
   "description": "Libbinaryen packaged for OCaml.",
   "author": "Blaine Bublitz <blaine@grain-lang.org>",
   "license": "Apache-2.0",

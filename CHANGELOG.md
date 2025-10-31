@@ -1,5 +1,27 @@
 # Changelog
 
+## [122.0.0](https://github.com/grain-lang/libbinaryen/compare/v121.0.0...v122.0.0) (2025-10-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to Binaryen v122 ([#102](https://github.com/grain-lang/libbinaryen/issues/102))
+* Require node `>= 22` for jsoo `6` ([#114](https://github.com/grain-lang/libbinaryen/issues/114))
+* Drop support for OCaml 4.12
+
+### Features
+
+* Bump `conf-cmake` ([#117](https://github.com/grain-lang/libbinaryen/issues/117)) ([938f5f0](https://github.com/grain-lang/libbinaryen/commit/938f5f0c9e862ede17229fa812747d0021ffe9ab))
+* Bump `conf-cmake` to `v4.1.2` ([#125](https://github.com/grain-lang/libbinaryen/issues/125)) ([64bab40](https://github.com/grain-lang/libbinaryen/commit/64bab409dfb604beb9bccd158abfb27eb1f5fdb1))
+* Require node `&gt;= 22` for jsoo `6` ([#114](https://github.com/grain-lang/libbinaryen/issues/114)) ([01d2926](https://github.com/grain-lang/libbinaryen/commit/01d29269fe8bbefa85a87d16204f49ea0cadd15d))
+* Support OCaml 5 ([bad98c6](https://github.com/grain-lang/libbinaryen/commit/bad98c67e44b0edbf177055ccb5d9bca562be6ec))
+* Upgrade to Binaryen v122 ([#102](https://github.com/grain-lang/libbinaryen/issues/102)) ([686e0c0](https://github.com/grain-lang/libbinaryen/commit/686e0c02eabe843a2d35a5ef46003473b05cb8e5))
+
+
+### Miscellaneous Chores
+
+* Drop support for OCaml 4.12 ([bad98c6](https://github.com/grain-lang/libbinaryen/commit/bad98c67e44b0edbf177055ccb5d9bca562be6ec))
+
 ## [121.0.0](https://github.com/grain-lang/libbinaryen/compare/v120.0.0...v121.0.0) (2025-03-04)
 
 
