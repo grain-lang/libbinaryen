@@ -37,9 +37,6 @@
     "test": "esy b dune runtest --display=short",
     "format": "dune build @fmt --auto-promote"
   },
-  "installConfig": {
-    "pnp": false
-  },
   "publishConfig": {
     "access": "public"
   },
