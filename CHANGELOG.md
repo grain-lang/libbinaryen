@@ -1,5 +1,12 @@
 # Changelog
 
+## [124.0.1](https://github.com/grain-lang/libbinaryen/compare/v124.0.0...v124.0.1) (2025-11-06)
+
+
+### Bug Fixes
+
+* Don't include binaryen submodules so Windows builds with opam ([#138](https://github.com/grain-lang/libbinaryen/issues/138)) ([e87751a](https://github.com/grain-lang/libbinaryen/commit/e87751af8a30f99a4cfeeb153d364d60c83deadc))
+
 ## [124.0.0](https://github.com/grain-lang/libbinaryen/compare/v123.0.0...v124.0.0) (2025-11-02)
 
 
