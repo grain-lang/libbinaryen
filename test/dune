@@ -16,6 +16,12 @@
  (modules test)
  (libraries binaryen)
  (modes exe js)
+ (action
+  (progn
+   (with-stdout-to
+    test_js.out
+    (run node --input-type=module %{dep:test.bc.js}))
+   (diff test_js.out test.expected)))
  (flags
   :standard
   (:include ./config/flags.sexp))
