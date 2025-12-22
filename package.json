@@ -33,6 +33,9 @@
       }
     }
   },
+  "installConfig": {
+    "pnp": false
+  },
   "scripts": {
     "test": "esy b dune runtest --display=short",
     "format": "dune build @fmt --auto-promote"
