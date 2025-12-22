@@ -40,7 +40,7 @@ jobs:
         with:
           submodules: "recursive"
 
-      - name: "Build binaryen.es5.js"
+      - name: "Build binaryen.js"
         run: |
           mkdir ./binaryen/build
           cd ./binaryen/build
@@ -49,7 +49,7 @@ jobs:
           emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DJS_OF_OCAML=ON -DBUILD_TOOLS=OFF -DBUILD_TESTS=OFF
           emmake make -j2 binaryen_js
           cd ../..
-          mv ./binaryen/build/bin/binaryen_js.js binaryen.es5.js
+          mv ./binaryen/build/bin/binaryen_js.js binaryen.js
 
       # Setup a "bot" name & email for our commit step
       # using the GitHub Actions bot user: https://github.community/t/github-actions-bot-email-address/17204/6
@@ -59,8 +59,8 @@ jobs:
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
 
       # Only commit if there's a change. Ref https://stackoverflow.com/a/8123841
-      - name: Commit binaryen.es5.js
+      - name: Commit binaryen.js
         run: |
-          git add binaryen.es5.js
-          git diff-index --quiet HEAD || git commit -m 'chore: Rebuild binaryen.es5.js'
+          git add binaryen.js
+          git diff-index --quiet HEAD || git commit -m 'chore: Rebuild binaryen.js'
           git push

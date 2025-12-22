@@ -5,7 +5,7 @@
  (c_library_flags :standard -lstdc++ -lpthread)
  (install_c_headers binaryen-c)
  (js_of_ocaml
-  (javascript_files binaryen.es5.js)))
+  (javascript_files binaryen.js)))
 
 (install
  (section lib)
