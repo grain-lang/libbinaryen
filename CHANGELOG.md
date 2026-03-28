@@ -1,5 +1,16 @@
 # Changelog
 
+## [126.0.0](https://github.com/grain-lang/libbinaryen/compare/v125.0.0...v126.0.0) (2026-03-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to Binaryen v126 ([#153](https://github.com/grain-lang/libbinaryen/issues/153))
+
+### Features
+
+* Upgrade to Binaryen v126 ([#153](https://github.com/grain-lang/libbinaryen/issues/153)) ([eaa6b76](https://github.com/grain-lang/libbinaryen/commit/eaa6b76e0a5c01aeb76ef8bad710bd801244adfa))
+
 ## [125.0.0](https://github.com/grain-lang/libbinaryen/compare/v124.0.1...v125.0.0) (2025-12-12)
 
 
