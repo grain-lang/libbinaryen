@@ -4,6 +4,9 @@
   "description": "Libbinaryen packaged for OCaml.",
   "author": "Blaine Bublitz <blaine@grain-lang.org>",
   "license": "Apache-2.0",
+  "installConfig": {
+    "pnp": false
+  },
   "dependencies": {
     "ocaml": ">= 4.13.0 < 5.4.0",
     "@opam/conf-cmake": "grain-lang/cmake:esy.json#033cab656dc71a6488b3c1ca6ea45099f794bd03",
@@ -11,12 +14,12 @@
     "@opam/dune-configurator": ">= 3.0.0"
   },
   "devDependencies": {
-    "@opam/js_of_ocaml-compiler": ">= 4.1.0 < 7.0.0",
-    "@opam/ocamlformat": "0.27.0",
+    "@opam/js_of_ocaml-compiler": ">= 6.3.0 < 7.0.0",
+    "@opam/ocamlformat": "0.29.0",
     "@opam/ocaml-lsp-server": "> 1.9.1 < 2.0.0"
   },
   "resolutions": {
-    "@opam/ocp-indent": "1.7.0",
+    "@opam/ocp-indent": "1.9.0",
     "@opam/ocamlfind": "1.9.8"
   },
   "esy": {

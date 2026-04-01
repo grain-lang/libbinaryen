@@ -40,13 +40,17 @@ jobs:
         with:
           submodules: "recursive"
 
+      - name: Patch binaryen
+        run: |
+          git apply ./binaryen.patch
+
       - name: "Build binaryen.es5.js"
         run: |
           mkdir ./binaryen/build
           cd ./binaryen/build
           source $HOME/emsdk/emsdk_env.sh
           emcc --version
-          emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DJS_OF_OCAML=ON -DBUILD_TOOLS=OFF -DBUILD_TESTS=OFF
+          emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DEMSCRIPTEN_ENABLE_SINGLE_FILE=ON -DJS_OF_OCAML=ON -DBUILD_TOOLS=OFF -DBUILD_TESTS=OFF
           emmake make -j2 binaryen_js
           cd ../..
           mv ./binaryen/build/bin/binaryen_js.js binaryen.es5.js
