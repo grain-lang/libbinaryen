@@ -66,5 +66,5 @@ jobs:
       - name: Commit binaryen.es5.js
         run: |
           git add binaryen.es5.js
-          git diff-index --quiet HEAD || git commit -m 'chore: Rebuild binaryen.es5.js'
+          git diff-index --quiet HEAD -- ./binaryen.es5.js || git commit -m 'chore: Rebuild binaryen.es5.js'
           git push
