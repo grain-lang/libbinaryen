@@ -40,10 +40,6 @@ jobs:
         with:
           submodules: "recursive"
 
-      - name: Patch binaryen
-        run: |
-          git apply ./binaryen.patch
-
       - name: "Build binaryen.es5.js"
         run: |
           mkdir ./binaryen/build
