@@ -1,5 +1,5 @@
 {
-  "checksum": "fdf260e93fd119f34f697e4880821dc1",
+  "checksum": "c84522af7d18711524a3984b88881680",
   "root": "@grain/libbinaryen@link-dev:./package.json",
   "node": {
     "ocaml@5.3.0@d41d8cd9": {
@@ -1711,18 +1711,20 @@
         [ "windows", "x86_64" ]
       ]
     },
-    "@opam/conf-ninja@github:spotandjake/ninja:esy.json#25fe64432492abd515bd4a53f6c7b4fd1a5d9315@d41d8cd9": {
-      "id": "@opam/conf-ninja@github:spotandjake/ninja:esy.json#25fe64432492abd515bd4a53f6c7b4fd1a5d9315@d41d8cd9",
+    "@opam/conf-ninja@github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b@d41d8cd9": {
+      "id": "@opam/conf-ninja@github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b@d41d8cd9",
       "name": "@opam/conf-ninja",
-      "version": "github:spotandjake/ninja:esy.json#25fe64432492abd515bd4a53f6c7b4fd1a5d9315",
+      "version": "github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b",
       "source": {
         "type": "install",
         "source": [
-          "github:spotandjake/ninja:esy.json#25fe64432492abd515bd4a53f6c7b4fd1a5d9315"
+          "github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b"
         ]
       },
       "overrides": [],
-      "dependencies": [],
+      "dependencies": [
+        "@opam/conf-cmake@github:grain-lang/cmake:esy.json#033cab656dc71a6488b3c1ca6ea45099f794bd03@d41d8cd9"
+      ],
       "devDependencies": [],
       "available": [
         [ "darwin", "x86_64" ],
@@ -1968,7 +1970,7 @@
         "ocaml@5.3.0@d41d8cd9",
         "@opam/dune-configurator@opam:3.24.2@7928eaef",
         "@opam/dune@opam:3.24.2@dc9091c2",
-        "@opam/conf-ninja@github:spotandjake/ninja:esy.json#25fe64432492abd515bd4a53f6c7b4fd1a5d9315@d41d8cd9",
+        "@opam/conf-ninja@github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b@d41d8cd9",
         "@opam/conf-cmake@github:grain-lang/cmake:esy.json#033cab656dc71a6488b3c1ca6ea45099f794bd03@d41d8cd9"
       ],
       "devDependencies": [

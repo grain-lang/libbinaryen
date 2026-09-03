@@ -10,7 +10,7 @@
   "dependencies": {
     "ocaml": ">= 4.13.0 < 5.4.0",
     "@opam/conf-cmake": "grain-lang/cmake:esy.json#033cab656dc71a6488b3c1ca6ea45099f794bd03",
-    "@opam/conf-ninja": "spotandjake/ninja:esy.json#25fe64432492abd515bd4a53f6c7b4fd1a5d9315",
+    "@opam/conf-ninja": "spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b",
     "@opam/dune": ">= 3.0.0",
     "@opam/dune-configurator": ">= 3.0.0"
   },
