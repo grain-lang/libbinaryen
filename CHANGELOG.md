@@ -1,5 +1,16 @@
 # Changelog
 
+## [129.0.0](https://github.com/grain-lang/libbinaryen/compare/v128.0.0...v129.0.0) (2026-09-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update to binaryen v129 ([#157](https://github.com/grain-lang/libbinaryen/issues/157))
+
+### Features
+
+* Update to binaryen v129 ([#157](https://github.com/grain-lang/libbinaryen/issues/157)) ([0c9868e](https://github.com/grain-lang/libbinaryen/commit/0c9868eb6f8b54eb486a48a135aaf9749eead8de))
+
 ## [128.0.0](https://github.com/grain-lang/libbinaryen/compare/v127.0.0...v128.0.0) (2026-09-02)
 
 
