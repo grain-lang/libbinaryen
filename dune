@@ -43,7 +43,7 @@
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations"
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
-     -DBUILD_STATIC_LIB=ON
+     -DBUILD_SHARED_LIBS=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
     (run cmake --build binaryen --config Release -- -j4)
@@ -71,7 +71,7 @@
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations"
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
-     -DBUILD_STATIC_LIB=OFF
+     -DBUILD_SHARED_LIBS=ON
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
     (run cmake --build binaryen --config Release -- -j4)
@@ -101,7 +101,7 @@
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized"
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
-     -DBUILD_STATIC_LIB=OFF
+     -DBUILD_SHARED_LIBS=ON
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
     (run cmake --build binaryen --config Release -- -j4)
@@ -133,7 +133,7 @@
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
      -DCMAKE_SHARED_LIBRARY_PREFIX_CXX=lib
-     -DBUILD_STATIC_LIB=OFF
+     -DBUILD_SHARED_LIBS=ON
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
     (run cmake --build binaryen --config Release -- -j4)
