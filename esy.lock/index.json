@@ -1,5 +1,5 @@
 {
-  "checksum": "c84522af7d18711524a3984b88881680",
+  "checksum": "4ad7ad0e08794aa960363462344094c1",
   "root": "@grain/libbinaryen@link-dev:./package.json",
   "node": {
     "ocaml@5.3.0@d41d8cd9": {
@@ -1711,14 +1711,14 @@
         [ "windows", "x86_64" ]
       ]
     },
-    "@opam/conf-ninja@github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b@d41d8cd9": {
-      "id": "@opam/conf-ninja@github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b@d41d8cd9",
+    "@opam/conf-ninja@github:spotandjake/ninja:esy.json#fc9bbcf1d1266d39ba380472f89cae75ee088f10@d41d8cd9": {
+      "id": "@opam/conf-ninja@github:spotandjake/ninja:esy.json#fc9bbcf1d1266d39ba380472f89cae75ee088f10@d41d8cd9",
       "name": "@opam/conf-ninja",
-      "version": "github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b",
+      "version": "github:spotandjake/ninja:esy.json#fc9bbcf1d1266d39ba380472f89cae75ee088f10",
       "source": {
         "type": "install",
         "source": [
-          "github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b"
+          "github:spotandjake/ninja:esy.json#fc9bbcf1d1266d39ba380472f89cae75ee088f10"
         ]
       },
       "overrides": [],
@@ -1970,7 +1970,7 @@
         "ocaml@5.3.0@d41d8cd9",
         "@opam/dune-configurator@opam:3.24.2@7928eaef",
         "@opam/dune@opam:3.24.2@dc9091c2",
-        "@opam/conf-ninja@github:spotandjake/ninja:esy.json#e4778ca780491fb9934492aa1588e71c8eb53b6b@d41d8cd9",
+        "@opam/conf-ninja@github:spotandjake/ninja:esy.json#fc9bbcf1d1266d39ba380472f89cae75ee088f10@d41d8cd9",
         "@opam/conf-cmake@github:grain-lang/cmake:esy.json#033cab656dc71a6488b3c1ca6ea45099f794bd03@d41d8cd9"
       ],
       "devDependencies": [
