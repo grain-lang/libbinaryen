@@ -13,6 +13,7 @@ build: [
 ]
 depends: [
   "conf-cmake" {build}
+  "conf-ninja" {build}
   "dune" {>= "3.0.0"}
   "dune-configurator" {>= "3.0.0"}
   "js_of_ocaml-compiler" {with-test & >= "6.3.0" < "7.0.0"}
