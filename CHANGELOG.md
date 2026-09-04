@@ -1,5 +1,21 @@
 # Changelog
 
+## [130.0.0](https://github.com/grain-lang/libbinaryen/compare/v129.0.0...v130.0.0) (2026-09-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update to binaryen v130 ([#162](https://github.com/grain-lang/libbinaryen/issues/162))
+
+### Features
+
+* Update to binaryen v130 ([#162](https://github.com/grain-lang/libbinaryen/issues/162)) ([f795f89](https://github.com/grain-lang/libbinaryen/commit/f795f89bcb8acfa33320ced2f9721de3823858ba))
+
+
+### Bug Fixes
+
+* Pass -Wno-restrict for arch and debian ([#170](https://github.com/grain-lang/libbinaryen/issues/170)) ([7d375c3](https://github.com/grain-lang/libbinaryen/commit/7d375c3dd42aa37e31b37583beadbe337209c3ec))
+
 ## [129.0.0](https://github.com/grain-lang/libbinaryen/compare/v128.0.0...v129.0.0) (2026-09-03)
 
 
