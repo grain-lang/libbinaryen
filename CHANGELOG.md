@@ -1,5 +1,18 @@
 # Changelog
 
+## [131.0.0](https://github.com/grain-lang/libbinaryen/compare/v130.0.0...v131.0.0) (2026-09-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update to binaryen v131 ([#164](https://github.com/grain-lang/libbinaryen/issues/164))
+* Drop ocaml 4.13 support ([#174](https://github.com/grain-lang/libbinaryen/issues/174))
+
+### Features
+
+* Drop ocaml 4.13 support ([#174](https://github.com/grain-lang/libbinaryen/issues/174)) ([2a5f7d7](https://github.com/grain-lang/libbinaryen/commit/2a5f7d7523dbfc30cd5469f2f2d8aedb5dca8400))
+* Update to binaryen v131 ([#164](https://github.com/grain-lang/libbinaryen/issues/164)) ([0018d3f](https://github.com/grain-lang/libbinaryen/commit/0018d3fcec91bb151ac5c4ed287b7d18fbe64c68))
+
 ## [130.0.0](https://github.com/grain-lang/libbinaryen/compare/v129.0.0...v130.0.0) (2026-09-04)
 
 
