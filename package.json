@@ -4,6 +4,10 @@
   "description": "Libbinaryen packaged for OCaml.",
   "author": "Blaine Bublitz <blaine@grain-lang.org>",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grain-lang/libbinaryen.git"
+  },
   "installConfig": {
     "pnp": false
   },
