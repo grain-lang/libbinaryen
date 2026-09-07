@@ -28,6 +28,8 @@
  (locks binaryen)
  (deps
   (source_tree binaryen))
+ (enabled_if
+  (<> %{system} mingw64))
  (action
   (no-infer
    (progn
@@ -39,6 +41,41 @@
      binaryen
      -G
      "Unix Makefiles"
+     ; GCC 7 (shipped with esy) doesn't like _ for unused variables
+     "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-restrict"
+     -DBUILD_TESTS=OFF
+     -DBUILD_TOOLS=OFF
+     -DBUILD_SHARED_LIBS=OFF
+     -DCMAKE_BUILD_TYPE=Release
+     -DCMAKE_INSTALL_PREFIX=binaryen)
+    (run cmake --build binaryen --config Release -- -j4)
+    (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
+
+(rule
+ (targets libbinaryen.a)
+ (locks binaryen)
+ (deps
+  (source_tree binaryen))
+ (enabled_if
+  (= %{system} mingw64))
+ (action
+  (no-infer
+   (progn
+    (run
+     cmake
+     -S
+     binaryen
+     -B
+     binaryen
+     -G
+     "Unix Makefiles"
+     ; CMake cannot find a usable compiler on its own under Cygwin/MSYS2, so
+     ; point it at the MinGW toolchain explicitly (this used to happen as a
+     ; side effect of the shared-library build configuring the same directory
+     ; first).
+     -DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc
+     -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++
+     "-DCMAKE_SYSTEM_NAME=Windows"
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-restrict"
      -DBUILD_TESTS=OFF
