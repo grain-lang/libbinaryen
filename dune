@@ -28,6 +28,8 @@
  (locks binaryen)
  (deps
   (source_tree binaryen))
+ (enabled_if
+  (<> %{system} mingw64))
  (action
   (no-infer
    (progn
@@ -50,65 +52,7 @@
     (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
 
 (rule
- (target dllbinaryen.so)
- (locks binaryen)
- (deps
-  (source_tree binaryen))
- (enabled_if
-  (= %{system} macosx))
- (action
-  (no-infer
-   (progn
-    (run
-     cmake
-     -S
-     binaryen
-     -B
-     binaryen
-     -G
-     "Unix Makefiles"
-     ; GCC 7 (shipped with esy) doesn't like _ for unused variables
-     "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-restrict"
-     -DBUILD_TESTS=OFF
-     -DBUILD_TOOLS=OFF
-     -DBUILD_SHARED_LIBS=ON
-     -DCMAKE_BUILD_TYPE=Release
-     -DCMAKE_INSTALL_PREFIX=binaryen)
-    (run cmake --build binaryen --config Release -- -j4)
-    (copy binaryen/lib/libbinaryen.dylib dllbinaryen.so)))))
-
-(rule
- (target dllbinaryen.so)
- (locks binaryen)
- (deps
-  (source_tree binaryen))
- (enabled_if
-  (and
-   (<> %{system} macosx)
-   (<> %{system} mingw64)))
- (action
-  (no-infer
-   (progn
-    (run
-     cmake
-     -S
-     binaryen
-     -B
-     binaryen
-     -G
-     "Unix Makefiles"
-     ; GCC 7 (shipped with esy) doesn't like _ for unused variables
-     "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-restrict"
-     -DBUILD_TESTS=OFF
-     -DBUILD_TOOLS=OFF
-     -DBUILD_SHARED_LIBS=ON
-     -DCMAKE_BUILD_TYPE=Release
-     -DCMAKE_INSTALL_PREFIX=binaryen)
-    (run cmake --build binaryen --config Release -- -j4)
-    (copy binaryen/lib/libbinaryen.so dllbinaryen.so)))))
-
-(rule
- (target dllbinaryen.dll)
+ (targets libbinaryen.a)
  (locks binaryen)
  (deps
   (source_tree binaryen))
@@ -125,18 +69,81 @@
      binaryen
      -G
      "Unix Makefiles"
+     ; CMake cannot find a usable compiler on its own under Cygwin/MSYS2, so
+     ; point it at the MinGW toolchain explicitly (this used to happen as a
+     ; side effect of the shared-library build configuring the same directory
+     ; first).
      -DCMAKE_C_COMPILER=x86_64-w64-mingw32-gcc
      -DCMAKE_CXX_COMPILER=x86_64-w64-mingw32-g++
      "-DCMAKE_SYSTEM_NAME=Windows"
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
-     "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-restrict"
+     "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-restrict"
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
-     -DCMAKE_SHARED_LIBRARY_PREFIX_CXX=lib
-     -DBUILD_SHARED_LIBS=ON
+     -DBUILD_SHARED_LIBS=OFF
      -DCMAKE_BUILD_TYPE=Release
      -DCMAKE_INSTALL_PREFIX=binaryen)
     (run cmake --build binaryen --config Release -- -j4)
-    (copy binaryen/bin/libbinaryen.dll dllbinaryen.dll)))))
+    (copy binaryen/lib/libbinaryen.a libbinaryen.a)))))
+
+(rule
+ (target dllbinaryen.so)
+ (deps libbinaryen.a)
+ (enabled_if
+  (= %{system} macosx))
+ (action
+  ; See the comment on the rule below; -all_load is the macOS linker's
+  ; equivalent of --whole-archive.
+  (run
+   c++
+   -dynamiclib
+   -o
+   %{target}
+   -Wl,-all_load
+   %{dep:libbinaryen.a}
+   -lpthread)))
+
+(rule
+ (target dllbinaryen.so)
+ (deps libbinaryen.a)
+ (enabled_if
+  (and
+   (<> %{system} macosx)
+   (<> %{system} mingw64)))
+ (action
+  ; Binaryen's CMake always compiles with -fPIC on these platforms, so the
+  ; shared library can be linked directly from the objects in the static
+  ; archive instead of configuring and compiling the whole tree a second
+  ; time. `c++` is the compiler CMake picks by default, so this links with
+  ; the same C++ runtime the objects were built against.
+  (run
+   c++
+   -shared
+   -o
+   %{target}
+   -Wl,--whole-archive
+   %{dep:libbinaryen.a}
+   -Wl,--no-whole-archive
+   -Wl,-Bsymbolic
+   -Wl,--no-undefined
+   -lpthread)))
+
+(rule
+ (target dllbinaryen.dll)
+ (deps libbinaryen.a)
+ (enabled_if
+  (= %{system} mingw64))
+ (action
+  ; Same idea as the dllbinaryen.so rule above, using the MinGW compiler
+  ; the previous version of this rule passed to CMake.
+  (run
+   x86_64-w64-mingw32-g++
+   -shared
+   -o
+   %{target}
+   -Wl,--whole-archive
+   %{dep:libbinaryen.a}
+   -Wl,--no-whole-archive
+   -lpthread)))
 
 (data_only_dirs node_modules)
