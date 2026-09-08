@@ -1,5 +1,12 @@
 # Changelog
 
+## [132.0.1](https://github.com/grain-lang/libbinaryen/compare/v132.0.0...v132.0.1) (2026-09-08)
+
+
+### Bug Fixes
+
+* Pass -Wno-error=array-bounds for gcc 16 ([#178](https://github.com/grain-lang/libbinaryen/issues/178)) ([c447848](https://github.com/grain-lang/libbinaryen/commit/c447848ec08d5ce0a3be3168e8acdb097e62737c))
+
 ## [132.0.0](https://github.com/grain-lang/libbinaryen/compare/v131.0.0...v132.0.0) (2026-09-06)
 
 
