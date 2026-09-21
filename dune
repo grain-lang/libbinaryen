@@ -43,6 +43,7 @@
      "Unix Makefiles"
      ; GCC 7 (shipped with esy) doesn't like _ for unused variables
      "-DCMAKE_CXX_FLAGS=-Wno-unused-variable -Wno-maybe-uninitialized -Wno-deprecated-declarations -Wno-restrict -Wno-error=array-bounds"
+     -DCMAKE_OSX_DEPLOYMENT_TARGET=11.0
      -DBUILD_TESTS=OFF
      -DBUILD_TOOLS=OFF
      -DBUILD_SHARED_LIBS=OFF
