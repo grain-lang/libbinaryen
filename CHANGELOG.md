@@ -1,5 +1,23 @@
 # Changelog
 
+## [133.0.0](https://github.com/grain-lang/libbinaryen/compare/v132.0.0...v133.0.0) (2026-09-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* Change `osx_deployment_target` to `11`
+* Support macos 27 ([#181](https://github.com/grain-lang/libbinaryen/issues/181))
+
+### Features
+
+* Change `osx_deployment_target` to `11` ([70fa14c](https://github.com/grain-lang/libbinaryen/commit/70fa14c211df7b54ae94ef700d142d7bfc190ed8))
+* Support macos 27 ([#181](https://github.com/grain-lang/libbinaryen/issues/181)) ([70fa14c](https://github.com/grain-lang/libbinaryen/commit/70fa14c211df7b54ae94ef700d142d7bfc190ed8))
+
+
+### Bug Fixes
+
+* Pass -Wno-error=array-bounds for gcc 16 ([#178](https://github.com/grain-lang/libbinaryen/issues/178)) ([c447848](https://github.com/grain-lang/libbinaryen/commit/c447848ec08d5ce0a3be3168e8acdb097e62737c))
+
 ## [132.0.0](https://github.com/grain-lang/libbinaryen/compare/v131.0.0...v132.0.0) (2026-09-06)
 
 
