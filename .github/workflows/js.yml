@@ -1,66 +1,66 @@
-name: Generate Binaryen.js
-on:
-  push:
-    branches-ignore:
-      - main
+# name: Generate Binaryen.js
+# on:
+#   push:
+#     branches-ignore:
+#       - main
 
-# This will cancel previous runs when a branch or PR is updated
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref || github.run_id }}
-  cancel-in-progress: true
+# # This will cancel previous runs when a branch or PR is updated
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.head_ref || github.ref || github.run_id }}
+#   cancel-in-progress: true
 
-jobs:
-  build:
-    name: "Build with emsdk"
-    runs-on: ubuntu-latest
+# jobs:
+#   build:
+#     name: "Build with emsdk"
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Setup node.js
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
-        with:
-          node-version: "22"
-          check-latest: true
+#     steps:
+#       - name: Setup node.js
+#         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+#         with:
+#           node-version: "22"
+#           check-latest: true
 
-      - name: "Set up emsdk"
-        run: |
-          mkdir $HOME/emsdk
-          git clone --depth 1 https://github.com/emscripten-core/emsdk.git $HOME/emsdk
-          $HOME/emsdk/emsdk install 4.0.19
-          $HOME/emsdk/emsdk activate 4.0.19
-          echo "$HOME/emsdk" >> $GITHUB_PATH
+#       - name: "Set up emsdk"
+#         run: |
+#           mkdir $HOME/emsdk
+#           git clone --depth 1 https://github.com/emscripten-core/emsdk.git $HOME/emsdk
+#           $HOME/emsdk/emsdk install 4.0.19
+#           $HOME/emsdk/emsdk activate 4.0.19
+#           echo "$HOME/emsdk" >> $GITHUB_PATH
 
-      - name: "Set up CMake"
-        run: |
-          mkdir $HOME/cmake
-          wget -qO- https://github.com/Kitware/CMake/releases/download/v4.1.2/cmake-4.1.2-Linux-x86_64.tar.gz | tar -xzC $HOME/cmake --strip-components 1
-          echo "$HOME/cmake/bin" >> $GITHUB_PATH
+#       - name: "Set up CMake"
+#         run: |
+#           mkdir $HOME/cmake
+#           wget -qO- https://github.com/Kitware/CMake/releases/download/v4.1.2/cmake-4.1.2-Linux-x86_64.tar.gz | tar -xzC $HOME/cmake --strip-components 1
+#           echo "$HOME/cmake/bin" >> $GITHUB_PATH
 
-      - name: Checkout project
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          submodules: "recursive"
+#       - name: Checkout project
+#         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+#         with:
+#           submodules: "recursive"
 
-      - name: "Build binaryen.es5.js"
-        run: |
-          mkdir ./binaryen/build
-          cd ./binaryen/build
-          source $HOME/emsdk/emsdk_env.sh
-          emcc --version
-          emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DEMSCRIPTEN_ENABLE_SINGLE_FILE=ON -DJS_OF_OCAML=ON -DBUILD_TOOLS=OFF -DBUILD_TESTS=OFF
-          emmake make -j2 binaryen_js
-          cd ../..
-          mv ./binaryen/build/bin/binaryen_js.js binaryen.es5.js
+#       - name: "Build binaryen.es5.js"
+#         run: |
+#           mkdir ./binaryen/build
+#           cd ./binaryen/build
+#           source $HOME/emsdk/emsdk_env.sh
+#           emcc --version
+#           emcmake cmake .. -DCMAKE_BUILD_TYPE=Release -DEMSCRIPTEN_ENABLE_SINGLE_FILE=ON -DJS_OF_OCAML=ON -DBUILD_TOOLS=OFF -DBUILD_TESTS=OFF
+#           emmake make -j2 binaryen_js
+#           cd ../..
+#           mv ./binaryen/build/bin/binaryen_js.js binaryen.es5.js
 
-      # Setup a "bot" name & email for our commit step
-      # using the GitHub Actions bot user: https://github.community/t/github-actions-bot-email-address/17204/6
-      - name: Configure git
-        run: |
-          git config --global user.name github-actions[bot]
-          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+#       # Setup a "bot" name & email for our commit step
+#       # using the GitHub Actions bot user: https://github.community/t/github-actions-bot-email-address/17204/6
+#       - name: Configure git
+#         run: |
+#           git config --global user.name github-actions[bot]
+#           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
 
-      # Only commit if there's a change. Ref https://stackoverflow.com/a/8123841
-      - name: Commit binaryen.es5.js
-        run: |
-          git add binaryen.es5.js
-          git diff-index --quiet HEAD -- ./binaryen.es5.js || git commit -m 'chore: Rebuild binaryen.es5.js'
-          git push
+#       # Only commit if there's a change. Ref https://stackoverflow.com/a/8123841
+#       - name: Commit binaryen.es5.js
+#         run: |
+#           git add binaryen.es5.js
+#           git diff-index --quiet HEAD -- ./binaryen.es5.js || git commit -m 'chore: Rebuild binaryen.es5.js'
+#           git push
