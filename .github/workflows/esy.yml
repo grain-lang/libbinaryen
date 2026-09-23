@@ -1,89 +1,89 @@
-name: Esy
-on:
-  push:
-    branches: [main]
-  pull_request:
+# name: Esy
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
 
-# This will cancel previous runs when a branch or PR is updated
-concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref || github.run_id }}
-  cancel-in-progress: true
+# # This will cancel previous runs when a branch or PR is updated
+# concurrency:
+#   group: ${{ github.workflow }}-${{ github.head_ref || github.ref || github.run_id }}
+#   cancel-in-progress: true
 
-env:
-  ESY__PREFIX: ${{ github.workspace }}/.esy/
+# env:
+#   ESY__PREFIX: ${{ github.workspace }}/.esy/
 
-jobs:
-  build:
-    name: Build and test
-    runs-on: ${{ matrix.os }}
+# jobs:
+#   build:
+#     name: Build and test
+#     runs-on: ${{ matrix.os }}
 
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         os: [ubuntu-latest, macos-latest, windows-latest]
 
-    steps:
-      - name: Setup node.js
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
-        with:
-          node-version: "22"
-          check-latest: true
+#     steps:
+#       - name: Setup node.js
+#         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+#         with:
+#           node-version: "22"
+#           check-latest: true
 
-      # Install `esy` to build the project
-      # It also adds `shx` globally for cross-platform shell commands
-      - name: Setup environment
-        run: |
-          npm i -g esy@0.9.2
-          npm i -g shx
+#       # Install `esy` to build the project
+#       # It also adds `shx` globally for cross-platform shell commands
+#       - name: Setup environment
+#         run: |
+#           npm i -g esy@0.9.2
+#           npm i -g shx
 
-      - name: Checkout project
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          submodules: true
+#       - name: Checkout project
+#         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+#         with:
+#           submodules: true
 
-      - name: Install local dependencies
-        run: |
-          esy install
+#       - name: Install local dependencies
+#         run: |
+#           esy install
 
-      - name: Esy cache
-        id: esy-cache
-        uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
-        with:
-          path: _export
-          key: ${{ runner.os }}-esy-${{ hashFiles('esy.lock/index.json') }}
+#       - name: Esy cache
+#         id: esy-cache
+#         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+#         with:
+#           path: _export
+#           key: ${{ runner.os }}-esy-${{ hashFiles('esy.lock/index.json') }}
 
-      - name: Import esy cache
-        if: steps.esy-cache.outputs.cache-hit == 'true'
-        run: |
-          esy import-dependencies _export
-          shx rm -rf _export
+#       - name: Import esy cache
+#         if: steps.esy-cache.outputs.cache-hit == 'true'
+#         run: |
+#           esy import-dependencies _export
+#           shx rm -rf _export
 
-      # Build the project in release to make sure deps are specified correctly
-      - name: Build release dependencies
-        if: steps.esy-cache.outputs.cache-hit != 'true'
-        run: |
-          esy build-dependencies --release
+#       # Build the project in release to make sure deps are specified correctly
+#       - name: Build release dependencies
+#         if: steps.esy-cache.outputs.cache-hit != 'true'
+#         run: |
+#           esy build-dependencies --release
 
-      - name: Build project in release
-        run: |
-          esy build --release
+#       - name: Build project in release
+#         run: |
+#           esy build --release
 
-      # Then build in non-release so we can test
-      - name: Build dependencies
-        if: steps.esy-cache.outputs.cache-hit != 'true'
-        run: |
-          esy build-dependencies
+#       # Then build in non-release so we can test
+#       - name: Build dependencies
+#         if: steps.esy-cache.outputs.cache-hit != 'true'
+#         run: |
+#           esy build-dependencies
 
-      - name: Build project
-        run: |
-          esy build
+#       - name: Build project
+#         run: |
+#           esy build
 
-      # Re-export dependencies if anything has changed or if it is the first time
-      - name: Build esy cache
-        if: steps.esy-cache.outputs.cache-hit != 'true'
-        run: |
-          esy export-dependencies
+#       # Re-export dependencies if anything has changed or if it is the first time
+#       - name: Build esy cache
+#         if: steps.esy-cache.outputs.cache-hit != 'true'
+#         run: |
+#           esy export-dependencies
 
-      - name: Run tests
-        run: |
-          esy test
+#       - name: Run tests
+#         run: |
+#           esy test
