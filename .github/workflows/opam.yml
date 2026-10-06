@@ -48,6 +48,11 @@ jobs:
       - name: Install local dependencies
         run: opam install . --deps-only --with-test
 
+      # Cygwin's cmake hangs during compiler detection with libuv1 1.53.0
+      - name: Pin Cygwin libuv1
+        if: runner.os == 'Windows'
+        run: Start-Process -Wait -NoNewWindow D:\.opam\.cygwin\setup-x86_64.exe '-q -R D:\cygwin -P libuv1=1.52.1-1'
+
       - name: Build project
         run: opam exec -- dune build
 
