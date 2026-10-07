@@ -1,106 +1,106 @@
-name: Release
-on:
-  push:
-    branches:
-      - main
+# name: Release
+# on:
+#   push:
+#     branches:
+#       - main
 
-jobs:
-  release-please:
-    name: Create Release
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: write
-      pull-requests: write
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
-    steps:
-      - uses: google-github-actions/release-please-action@v3.7.10
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: ocaml
-          package-name: libbinaryen
-          pull-request-title-pattern: "chore${scope}: Release${component} ${version}"
+# jobs:
+#   release-please:
+#     name: Create Release
+#     runs-on: ubuntu-22.04
+#     permissions:
+#       contents: write
+#       pull-requests: write
+#     outputs:
+#       release_created: ${{ steps.release.outputs.release_created }}
+#       tag_name: ${{ steps.release.outputs.tag_name }}
+#     steps:
+#       - uses: google-github-actions/release-please-action@v3.7.10
+#         id: release
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           release-type: ocaml
+#           package-name: libbinaryen
+#           pull-request-title-pattern: "chore${scope}: Release${component} ${version}"
 
-  add-archive:
-    needs: [release-please]
-    if: ${{ needs.release-please.outputs.release_created }}
-    name: Add archive to release
-    runs-on: macos-latest
-    permissions:
-      contents: write
-    outputs:
-      browser_download_url: ${{ steps.upload.outputs.browser_download_url }}
-      notes: ${{ steps.upload.outputs.notes }}
-    steps:
-      - name: Install git-archive-all
-        run: |
-          brew install git-archive-all
+#   add-archive:
+#     needs: [release-please]
+#     if: ${{ needs.release-please.outputs.release_created }}
+#     name: Add archive to release
+#     runs-on: macos-latest
+#     permissions:
+#       contents: write
+#     outputs:
+#       browser_download_url: ${{ steps.upload.outputs.browser_download_url }}
+#       notes: ${{ steps.upload.outputs.notes }}
+#     steps:
+#       - name: Install git-archive-all
+#         run: |
+#           brew install git-archive-all
 
-      - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          submodules: true
+#       - name: Checkout code
+#         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+#         with:
+#           submodules: true
 
-      - name: Build archive
-        run: |
-          git-archive-all libbinaryen.tar.gz
+#       - name: Build archive
+#         run: |
+#           git-archive-all libbinaryen.tar.gz
 
-      - name: Upload Release Asset
-        id: upload
-        uses: grain-lang/upload-release-action@v3.0.2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./libbinaryen.tar.gz
-          asset_name: libbinaryen-${{ needs.release-please.outputs.tag_name }}.tar.gz
-          tag: ${{ needs.release-please.outputs.tag_name }}
+#       - name: Upload Release Asset
+#         id: upload
+#         uses: grain-lang/upload-release-action@v3.0.2
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           file: ./libbinaryen.tar.gz
+#           asset_name: libbinaryen-${{ needs.release-please.outputs.tag_name }}.tar.gz
+#           tag: ${{ needs.release-please.outputs.tag_name }}
 
-  opam-release:
-    needs: [release-please, add-archive]
-    name: Publish to opam registry
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    steps:
-      - name: Setup bot user
-        run: |
-          git config --global user.email "bot@grain-lang.org"
-          git config --global user.name "Grain Bot"
+#   opam-release:
+#     needs: [release-please, add-archive]
+#     name: Publish to opam registry
+#     runs-on: ubuntu-22.04
+#     permissions:
+#       contents: read
+#     steps:
+#       - name: Setup bot user
+#         run: |
+#           git config --global user.email "bot@grain-lang.org"
+#           git config --global user.name "Grain Bot"
 
-      - name: Generate CHANGES file
-        env:
-          CHANGES: ${{ needs.add-archive.outputs.notes }}
-        run: |
-          echo -n "$CHANGES" > CHANGES.md
+#       - name: Generate CHANGES file
+#         env:
+#           CHANGES: ${{ needs.add-archive.outputs.notes }}
+#         run: |
+#           echo -n "$CHANGES" > CHANGES.md
 
-      - name: Setup OCaml
-        uses: ocaml/setup-ocaml@c2e6bb92370612b89f302c3aaefa1da45ee2d702 # v3.2.15
-        with:
-          ocaml-compiler: 5.2.0
+#       - name: Setup OCaml
+#         uses: ocaml/setup-ocaml@93303b622b2522e4411e295f9e77411a24912ac7 # v3.9.0
+#         with:
+#           ocaml-compiler: 5.2.0
 
-      - name: Install publish utils
-        run: |
-          opam install opam-publish=2.7.0
+#       - name: Install publish utils
+#         run: |
+#           opam install opam-publish=3.0.0
 
-      - name: Publish to opam
-        env:
-          OPAM_PUBLISH_GH_TOKEN: ${{ secrets.OPAM_RELEASE }}
-        run: |
-          opam publish --no-confirmation --no-browser --msg-file=CHANGES.md ${{ needs.add-archive.outputs.browser_download_url }}
+#       - name: Publish to opam
+#         env:
+#           OPAM_PUBLISH_GH_TOKEN: ${{ secrets.OPAM_RELEASE }}
+#         run: |
+#           opam publish --no-confirmation --no-browser --msg-file=CHANGES.md ${{ needs.add-archive.outputs.browser_download_url }}
 
-  npm-release:
-    needs: [add-archive]
-    name: Publish to npm registry
-    runs-on: ubuntu-22.04
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - name: Setup NodeJS
-        uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
-        with:
-          node-version: "24"
+#   npm-release:
+#     needs: [add-archive]
+#     name: Publish to npm registry
+#     runs-on: ubuntu-22.04
+#     permissions:
+#       id-token: write
+#       contents: read
+#     steps:
+#       - name: Setup NodeJS
+#         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+#         with:
+#           node-version: "24"
 
-      - name: Publish to npm
-        run: npm publish --provenance ${{ needs.add-archive.outputs.browser_download_url }}
+#       - name: Publish to npm
+#         run: npm publish --provenance ${{ needs.add-archive.outputs.browser_download_url }}
