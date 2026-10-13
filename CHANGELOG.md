@@ -1,5 +1,12 @@
 # Changelog
 
+## [133.1.0](https://github.com/grain-lang/libbinaryen/compare/v133.0.0...v133.1.0) (2026-10-13)
+
+
+### Features
+
+* Upgrade ci dependencies ([#160](https://github.com/grain-lang/libbinaryen/issues/160)) ([57c0cd0](https://github.com/grain-lang/libbinaryen/commit/57c0cd03965a8a7ad47dcf2d4d300d623e02e663))
+
 ## [133.0.0](https://github.com/grain-lang/libbinaryen/compare/v132.0.0...v133.0.0) (2026-10-07)
 
 
