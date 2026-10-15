@@ -32,6 +32,22 @@ jobs:
         with:
           submodules: true
 
+      # We use esy-bash as a build environment to keep the cygwin environment the same as esy
+      - name: Checkout esy-bash
+        uses: actions/checkout@v4
+        with:
+          repository: esy/esy-bash
+          path: .tools/esy-bash
+
+      - name: Setup esy-bash environment
+        working-directory: .tools/esy-bash
+        run: |
+          npm i -g esy@0.9.2
+          npm install
+          npm run build-exe
+          npm run build-cygwin
+          npm link
+
       - name: Setup OCaml ${{ matrix.ocaml-compiler }}
         uses: ocaml/setup-ocaml@93303b622b2522e4411e295f9e77411a24912ac7 # v3.9.0
         with:
@@ -39,17 +55,17 @@ jobs:
 
       - name: Inspect depexts
         run: |
-          opam exec -- which cmake
-          opam exec -- which gcc
-          opam exec -- which g++
-          opam exec -- gcc --version
-          opam exec -- g++ --version
+          esy-bash opam exec -- which cmake
+          esy-bash opam exec -- which gcc
+          esy-bash opam exec -- which g++
+          esy-bash opam exec -- gcc --version
+          esy-bash opam exec -- g++ --version
 
       - name: Install local dependencies
-        run: opam install . --deps-only --with-test
+        run: esy-bash opam install . --deps-only --with-test
 
       - name: Build project
-        run: opam exec -- dune build
+        run: esy-bash opam exec -- dune build
 
       - name: Run tests
-        run: opam exec -- dune runtest --display=short
+        run: esy-bash opam exec -- dune runtest --display=short
