@@ -13,6 +13,8 @@ jobs:
   build:
     name: "Build with emsdk"
     runs-on: ubuntu-latest
+    # Most runs take between 10 and 15 minutes, but we leave some extra buffer.
+    timeout-minutes: 60
 
     steps:
       - name: Setup node.js
