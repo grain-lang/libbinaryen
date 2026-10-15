@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        ocaml-compiler: [4.14.1, 5.3.0]
+        ocaml-compiler: [5.3.0]
 
     steps:
       - name: Setup node.js
@@ -33,7 +33,7 @@ jobs:
           submodules: true
 
       - name: Setup OCaml ${{ matrix.ocaml-compiler }}
-        uses: ocaml/setup-ocaml@4dd53a587b9836a35604fec9601e606ff42145bc # v3.4.1
+        uses: ocaml/setup-ocaml@93303b622b2522e4411e295f9e77411a24912ac7 # v3.9.0
         with:
           ocaml-compiler: ${{ matrix.ocaml-compiler }}
 
@@ -47,11 +47,6 @@ jobs:
 
       - name: Install local dependencies
         run: opam install . --deps-only --with-test
-
-      # Cygwin's cmake hangs during compiler detection with libuv1 1.53.0
-      - name: Pin Cygwin libuv1
-        if: runner.os == 'Windows'
-        run: Start-Process -Wait -NoNewWindow D:\.opam\.cygwin\setup-x86_64.exe '-q -R D:\cygwin -P libuv1=1.52.1-1'
 
       - name: Build project
         run: opam exec -- dune build
